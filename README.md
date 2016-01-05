@@ -1,4 +1,4 @@
 # todoMVC
 Todo MVC Application using react / redux and node.js
 
-Blub
+Lars ist dabei
