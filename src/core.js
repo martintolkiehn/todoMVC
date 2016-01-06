@@ -4,6 +4,12 @@ function addTask(state, taskName) {
   return immutable.List(state).push({name:taskName, completed: false}).toJS();
 }
 
+function renameTask(state, position, taskName) {
+  return immutable.List(state).update(position, function(task) {
+    return immutable.Map(task).updateIn(['name'], function(name) { return taskName; });
+  }).toJS();
+}
+
 function deleteTask(state, position) {
   return immutable.List(state).delete(position).toJS();
 }
@@ -39,6 +45,7 @@ function deleteAllCompletedTasks(state) {
 
 module.exports = {
   "addTask": addTask,
+  "renameTask": renameTask,
   "deleteTask": deleteTask,
   "completeTask": completeTask,
   "uncompleteTask": uncompleteTask,
