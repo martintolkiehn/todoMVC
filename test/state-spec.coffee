@@ -59,3 +59,15 @@ describe 'state test', ->
         {name: 'Krümel weggekratzt', completed: true}
       ]
       expect(state.completeTask(stateOld, position)).to.deep.equal(stateNew)
+
+    it 'complete item', ->
+      position = 0
+      stateOld = [
+        {name: 'Wurstbrot gegessen', completed: true}
+        {name: 'Krümel weggekratzt', completed: false}
+      ]
+      stateNew = [
+        {name: 'Wurstbrot gegessen', completed: true}
+        {name: 'Krümel weggekratzt', completed: false}
+      ]
+      expect(state.completeTask(stateOld, position)).to.deep.equal(stateNew)
