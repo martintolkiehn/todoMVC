@@ -18,7 +18,11 @@
   "homepage": "https://github.com/martintolkiehn/todoMVC#readme",
   "devDependencies": {
     "chai": "^3.4.1",
+    "chai-immutable": "^1.5.3",
     "coffee-script": "^1.10.0",
     "mocha": "^2.3.4"
+  },
+  "dependencies": {
+    "immutable": "^3.7.6"
   }
 }
