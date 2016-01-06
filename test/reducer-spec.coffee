@@ -33,3 +33,17 @@ describe 'reducer test', ->
         name: newName, completed: false
       ]
       expect(reduce(stateOld, action)).to.deep.equal(stateNew)
+
+  describe 'rename task', ->
+    it 'rename existing task', ->
+      position = 0
+      oldName = 'Milch holen'
+      newName = 'Milchreis holen'
+      action = {type: 'RENAME_TASK', position: position, name: newName }
+      stateOld = [
+        name: oldName, completed: false
+      ]
+      stateNew = [
+        name: newName, completed: false
+      ]
+      expect(reduce(stateOld, action)).to.deep.equal(stateNew)

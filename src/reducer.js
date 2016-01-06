@@ -8,10 +8,9 @@ function reduce(state, action) {
     return state;
   }
   switch(action.type) {
-    case 'ADD_NEW_TASK':
-      return Core.addTask(state, action.name);
-    default:
-      return state;
+    case 'ADD_NEW_TASK': return Core.addTask(state, action.name);
+    case 'RENAME_TASK': return Core.renameTask(state, action.position, action.name);
+    default: return state;
   }
 }
 
