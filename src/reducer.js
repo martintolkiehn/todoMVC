@@ -12,6 +12,7 @@ function reduce(state, action) {
     case 'RENAME_TASK': return Core.renameTask(state, action.position, action.name);
     case 'DELETE_TASK': return Core.deleteTask(state, action.position);
     case 'COMPLETE_TASK': return Core.completeTask(state, action.position);
+    case 'UNCOMPLETE_TASK': return Core.uncompleteTask(state, action.position);
     default: return state;
   }
 }
