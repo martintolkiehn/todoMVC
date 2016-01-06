@@ -58,3 +58,17 @@ describe 'reducer test', ->
       stateNew = [
       ]
       expect(reduce(stateOld, action)).to.deep.equal(stateNew)
+
+  describe 'complete existing unclompeted item', ->
+    it 'complete item', ->
+      position = 1
+      action = {type: 'COMPLETE_TASK', position: position}
+      stateOld = [
+        {name: 'Wurstbrot gegessen', completed: false}
+        {name: 'Krümel weggekratzt', completed: false}
+      ]
+      stateNew = [
+        {name: 'Wurstbrot gegessen', completed: false}
+        {name: 'Krümel weggekratzt', completed: true}
+      ]
+      expect(reduce(stateOld, action)).to.deep.equal(stateNew)
