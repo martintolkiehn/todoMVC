@@ -86,3 +86,16 @@ describe 'reducer test', ->
         {name: 'Krümel weggekratzt', completed: false}
       ]
       expect(reduce(stateOld, action)).to.deep.equal(stateNew)
+
+  describe 'toggle existing completed item', ->
+    it 'toggle completed item', ->
+      position = 0
+      action = {type: 'TOGGLE_TASK_COMPLETION', position: position}
+      stateOld = [
+        {name: 'Wurstbrot gegessen', completed: false}
+      ]
+      stateNew = [
+        {name: 'Wurstbrot gegessen', completed: true}
+      ]
+      expect(reduce(stateOld, action)).to.deep.equal(stateNew)
+
