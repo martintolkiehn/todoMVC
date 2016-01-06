@@ -117,3 +117,13 @@ describe 'state test', ->
         {name: 'Wurstbrot gegessen', completed: false}
       ]
       expect(state.toggleTaskCompletion(stateOld, position)).to.deep.equal(stateNew)
+
+    it 'toggle noneexisting item', ->
+      position = 1
+      stateOld = [
+        {name: 'Wurstbrot gegessen', completed: true}
+      ]
+      stateNew = [
+        {name: 'Wurstbrot gegessen', completed: true}
+      ]
+      expect(state.toggleTaskCompletion(stateOld, position)).to.deep.equal(stateNew)

@@ -21,6 +21,9 @@ function uncompleteTask(state, position) {
 }
 
 function toggleTaskCompletion(state, position) {
+  if (position >= state.length) {
+    return state;
+  }
   if (state[position].completed) {
     return uncompleteTask(state, position);
   } else {
