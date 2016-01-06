@@ -54,4 +54,4 @@ module.exports = {
   "uncompleteTask": uncompleteTask,
   "toggleTaskCompletion": toggleTaskCompletion,
   "deleteAllCompletedTasks": deleteAllCompletedTasks
-}
+};
