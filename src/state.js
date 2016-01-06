@@ -8,7 +8,14 @@ function deleteTask(state, position) {
   return immutable.List(state).delete(position).toJS();
 }
 
+function completeTask(state, position) {
+  return immutable.List(state).update(position, function(task) {
+    return immutable.Map(task).updateIn(['completed'], function(completed) { return true; });
+  }).toJS();
+}
+
 module.exports = {
   "addTask": addTask,
-  "deleteTask": deleteTask
+  "deleteTask": deleteTask,
+  "completeTask": completeTask
 }
