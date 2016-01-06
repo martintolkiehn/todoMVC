@@ -38,3 +38,11 @@ describe 'state test', ->
       stateNew = [
       ]
       expect(state.deleteTask(stateOld, position)).to.deep.equal(stateNew)
+
+    it 'delete none existing item', ->
+      position = 1
+      stateOld = [
+      ]
+      stateNew = [
+      ]
+      expect(state.deleteTask(stateOld, position)).to.deep.equal(stateNew)
