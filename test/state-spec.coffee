@@ -15,3 +15,16 @@ describe 'state test', ->
         name: newName
       ]
       expect(state.addTask(stateOld, newName)).to.deep.equal(stateNew)
+
+    it 'add another item on none empty todo list', ->
+      newName = 'Aber die Eier nicht vergessen'
+      stateOld = [
+        {name: 'Milch holen'}
+        {name: 'komischer Task'}
+      ]
+      stateNew = [
+        {name: 'Milch holen'}
+        {name: 'komischer Task'}
+        {name: newName}
+      ]
+      expect(state.addTask(stateOld, newName)).to.deep.equal(stateNew)
