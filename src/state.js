@@ -31,10 +31,17 @@ function toggleTaskCompletion(state, position) {
   }
 }
 
+function deleteAllCompletedTasks(state) {
+  return immutable.List(state).filter(function(task){
+    return !task.completed;
+  }).toJS();
+}
+
 module.exports = {
   "addTask": addTask,
   "deleteTask": deleteTask,
   "completeTask": completeTask,
   "uncompleteTask": uncompleteTask,
-  "toggleTaskCompletion": toggleTaskCompletion
+  "toggleTaskCompletion": toggleTaskCompletion,
+  "deleteAllCompletedTasks": deleteAllCompletedTasks
 }
