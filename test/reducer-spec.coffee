@@ -99,3 +99,15 @@ describe 'reducer test', ->
       ]
       expect(reduce(stateOld, action)).to.deep.equal(stateNew)
 
+  describe 'delete all completed tasks', ->
+    it 'delete all completed tasks', ->
+      action = {type: 'DELETE_ALL_COMPLETED_TASKS'}
+      stateOld = [
+        {name: 'Wurstbrot gegessen', completed: true}
+        {name: 'Krümel weggekratzt', completed: false}
+        {name: 'Mund abgeputzt', completed: true}
+      ]
+      stateNew = [
+        {name: 'Krümel weggekratzt', completed: false}
+      ]
+      expect(reduce(stateOld, action)).to.deep.equal(stateNew)

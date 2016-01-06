@@ -13,8 +13,8 @@ function reduce(state, action) {
     case 'DELETE_TASK': return Core.deleteTask(state, action.position);
     case 'COMPLETE_TASK': return Core.completeTask(state, action.position);
     case 'UNCOMPLETE_TASK': return Core.uncompleteTask(state, action.position);
-	case 'TOGGLE_TASK_COMPLETION': return Core.toggleTaskCompletion(state, action.position);
-	
+	  case 'TOGGLE_TASK_COMPLETION': return Core.toggleTaskCompletion(state, action.position);
+    case 'DELETE_ALL_COMPLETED_TASKS': return Core.deleteAllCompletedTasks(state);
     default: return state;
   }
 }
