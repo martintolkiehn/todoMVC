@@ -1,5 +1,4 @@
 --compilers coffee:coffee-script/register
 --colors
---watch
 --reporter spec
 --ui tdd
