@@ -9,9 +9,20 @@ describe 'reducer test', ->
 
   describe 'get initial state', ->
     it 'get initial state on undefined state', ->
+      action = undefined
       stateOld = undefined
       stateNew = []
-      expect(reduce(stateOld, undefined)).to.deep.equal(stateNew)
+      expect(reduce(stateOld, action)).to.deep.equal(stateNew)
+
+    it 'get same state on undefined action', ->
+      action = undefined
+      stateOld = [
+        name: 'schlafen gehen', completed: false
+      ]
+      stateNew = [
+        name: 'schlafen gehen', completed: false
+      ]
+      expect(reduce(stateOld, action)).to.deep.equal(stateNew)
 
   describe 'add new task', ->
     it 'add first task on empty task list', ->
