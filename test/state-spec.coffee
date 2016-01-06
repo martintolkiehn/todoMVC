@@ -28,3 +28,13 @@ describe 'state test', ->
         {name: newName}
       ]
       expect(state.addTask(stateOld, newName)).to.deep.equal(stateNew)
+
+  describe 'delete existing item', ->
+    it 'delete first item', ->
+      position = 0
+      stateOld = [
+        name: 'Wurstbrot gegessen'
+      ]
+      stateNew = [
+      ]
+      expect(state.deleteTask(stateOld, position)).to.deep.equal(stateNew)
