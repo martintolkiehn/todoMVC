@@ -47,3 +47,14 @@ describe 'reducer test', ->
         name: newName, completed: false
       ]
       expect(reduce(stateOld, action)).to.deep.equal(stateNew)
+
+  describe 'delete existing task', ->
+    it 'delete first task', ->
+      position = 0
+      action = {type: 'DELETE_TASK', position: position}
+      stateOld = [
+        name: 'Wurstbrot gegessen', completed: false
+      ]
+      stateNew = [
+      ]
+      expect(reduce(stateOld, action)).to.deep.equal(stateNew)
