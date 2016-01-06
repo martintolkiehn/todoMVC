@@ -47,7 +47,7 @@ describe 'state test', ->
       ]
       expect(state.deleteTask(stateOld, position)).to.deep.equal(stateNew)
 
-  describe 'complete existing item', ->
+  describe 'complete existing unclompeted item', ->
     it 'complete item', ->
       position = 1
       stateOld = [
@@ -60,7 +60,7 @@ describe 'state test', ->
       ]
       expect(state.completeTask(stateOld, position)).to.deep.equal(stateNew)
 
-    it 'complete item', ->
+    it 'complete an completed item item', ->
       position = 0
       stateOld = [
         {name: 'Wurstbrot gegessen', completed: true}
@@ -71,3 +71,16 @@ describe 'state test', ->
         {name: 'Krümel weggekratzt', completed: false}
       ]
       expect(state.completeTask(stateOld, position)).to.deep.equal(stateNew)
+
+  describe 'uncomplete existing completed item', ->
+    it 'uncomplete item', ->
+      position = 0
+      stateOld = [
+        {name: 'Wurstbrot gegessen', completed: true}
+        {name: 'Krümel weggekratzt', completed: false}
+      ]
+      stateNew = [
+        {name: 'Wurstbrot gegessen', completed: false}
+        {name: 'Krümel weggekratzt', completed: false}
+      ]
+      expect(state.uncompleteTask(stateOld, position)).to.deep.equal(stateNew)

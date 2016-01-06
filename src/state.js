@@ -14,8 +14,15 @@ function completeTask(state, position) {
   }).toJS();
 }
 
+function uncompleteTask(state, position) {
+  return immutable.List(state).update(position, function(task) {
+    return immutable.Map(task).updateIn(['completed'], function(completed) { return false; });
+  }).toJS();
+}
+
 module.exports = {
   "addTask": addTask,
   "deleteTask": deleteTask,
-  "completeTask": completeTask
+  "completeTask": completeTask,
+  "uncompleteTask": uncompleteTask
 }
