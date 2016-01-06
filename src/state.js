@@ -1,7 +1,7 @@
 var immutable = require("immutable");
 
 function addTask(state, taskName) {
-  return immutable.List(state).push({name:taskName}).toJS();
+  return immutable.List(state).push({name:taskName, completed: false}).toJS();
 }
 
 function deleteTask(state, position) {

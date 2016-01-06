@@ -12,20 +12,20 @@ describe 'state test', ->
       newName = 'Milch holen'
       stateOld = []
       stateNew = [
-        name: newName
+        name: newName, completed: false
       ]
       expect(state.addTask(stateOld, newName)).to.deep.equal(stateNew)
 
     it 'add another item on none empty todo list', ->
       newName = 'Aber die Eier nicht vergessen'
       stateOld = [
-        {name: 'Milch holen'}
-        {name: 'komischer Task'}
+        {name: 'Milch holen', completed: false}
+        {name: 'komischer Task', completed: false}
       ]
       stateNew = [
-        {name: 'Milch holen'}
-        {name: 'komischer Task'}
-        {name: newName}
+        {name: 'Milch holen', completed: false}
+        {name: 'komischer Task', completed: false}
+        {name: newName, completed: false}
       ]
       expect(state.addTask(stateOld, newName)).to.deep.equal(stateNew)
 
@@ -33,7 +33,7 @@ describe 'state test', ->
     it 'delete first item', ->
       position = 0
       stateOld = [
-        name: 'Wurstbrot gegessen'
+        name: 'Wurstbrot gegessen', completed: false
       ]
       stateNew = [
       ]
