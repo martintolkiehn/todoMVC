@@ -20,9 +20,18 @@ function uncompleteTask(state, position) {
   }).toJS();
 }
 
+function toggleTaskCompletion(state, position) {
+  if (state[position].completed) {
+    return uncompleteTask(state, position);
+  } else {
+    return completeTask(state, position);
+  }
+}
+
 module.exports = {
   "addTask": addTask,
   "deleteTask": deleteTask,
   "completeTask": completeTask,
-  "uncompleteTask": uncompleteTask
+  "uncompleteTask": uncompleteTask,
+  "toggleTaskCompletion": toggleTaskCompletion
 }

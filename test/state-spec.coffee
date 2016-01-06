@@ -96,3 +96,14 @@ describe 'state test', ->
         {name: 'Krümel weggekratzt', completed: false}
       ]
       expect(state.uncompleteTask(stateOld, position)).to.deep.equal(stateNew)
+
+  describe 'toggle existing completed item', ->
+    it 'toggle completed item', ->
+      position = 0
+      stateOld = [
+        {name: 'Wurstbrot gegessen', completed: false}
+      ]
+      stateNew = [
+        {name: 'Wurstbrot gegessen', completed: true}
+      ]
+      expect(state.toggleTaskCompletion(stateOld, position)).to.deep.equal(stateNew)
