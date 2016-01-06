@@ -1,5 +1,7 @@
 var immutable = require("immutable");
 
+var INITIAL_STATE = [];
+
 function addTask(state, taskName) {
   return immutable.List(state).push({name:taskName, completed: false}).toJS();
 }
@@ -44,6 +46,7 @@ function deleteAllCompletedTasks(state) {
 }
 
 module.exports = {
+  "INITIAL_STATE": INITIAL_STATE,
   "addTask": addTask,
   "renameTask": renameTask,
   "deleteTask": deleteTask,

@@ -3,7 +3,7 @@
 
 Core = require '../src/core'
 
-describe 'state test', ->
+describe 'core test', ->
   describe 'we have a state', ->
     it 'state exists', -> expect(Core).to.exist
 
