@@ -20,3 +20,17 @@ describe 'Store', ->
     ]
     store.dispatch action
     expect(store.getState()).to.deep.equal(stateNew)
+
+  it 'dispatch renameTask', ->
+    position = 0
+    oldName = 'Milch holen'
+    newName = 'Milchreis holen'
+    action = {type: 'RENAME_TASK', position: position, name: newName }
+    stateOld = [
+      name: oldName, completed: false
+    ]
+    stateNew = [
+      name: newName, completed: false
+    ]
+    store.dispatch action
+    expect(store.getState()).to.deep.equal(stateNew)
