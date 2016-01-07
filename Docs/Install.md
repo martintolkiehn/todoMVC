@@ -1,5 +1,3 @@
-#———————————————————#
-
 # node.js
 https://nodejs.org
 
@@ -13,8 +11,6 @@ https://nodejs.org
 *  redux  # flux framework
 *  react-redux # bring it together
 *  redux-devtool  # som tools for redux
-
-#———————————————————#
 
 # atom
 https://atom.io
@@ -35,6 +31,4 @@ https://atom.io
 *  pigments # shows colors in the code
 
 ## BEWARE
-nuclide # takes 100% cpu load
-
-#———————————————————#
+*nuclide # takes 100% cpu load*
