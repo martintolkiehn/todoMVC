@@ -2,3 +2,4 @@
 --colors
 --reporter spec
 --ui tdd
+src/**/test/*-spec.coffee

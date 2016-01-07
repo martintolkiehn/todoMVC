@@ -1,7 +1,7 @@
 {expect} = require 'chai'
 {List, Map} = require 'immutable'
 
-{reduce} = require '../src/reducer'
+{reduce} = require '../reducer'
 
 describe 'reducer test', ->
   describe 'we have a reducer', ->

@@ -1,7 +1,7 @@
 {expect} = require 'chai'
 {Map,fromJS} = require 'immutable'
 
-{makeStore} = require '../src/store'
+{makeStore} = require '../store'
 
 describe 'Store', ->
 

@@ -1,7 +1,7 @@
 {expect} = require 'chai'
 {List, Map} = require 'immutable'
 
-Core = require '../src/core'
+Core = require '../core'
 
 describe 'core test', ->
   describe 'we have a state', ->
