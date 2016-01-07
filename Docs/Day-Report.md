@@ -7,8 +7,8 @@ Zusammenfassung der Einarbeitungs-Tage
 Datum 05.01.2016
 
 *  Aufteilung der initialen Arbeit
-*  Aufsetzen eines Team-Github-Repository für Projekt TodoMVC mit allen Beteiligten als Contributor
-*  Grundsätzlicher Test des gemeinsamen Repositories (jeder Entwickler clont, commited, pushed, pulled, merged einmal)
+*  Aufsetzen eines Team-Github-Repository für Projekt TodoMVC mit allen Beteiligten als Collaborators
+*  Grundsätzlicher Test des gemeinsamen Repositories (jeder Entwickler cloned, commited, pushed, pulled, merged einmal)
 
 ## Arbeits-Verteilung
 *  Erarbeitung/Zusammenfassung der CleanCode-Namens-Grundregeln
@@ -33,12 +33,12 @@ Datum 06.01.2016
    (Wahl von Coffee-Script als Sprache für die Test-Spezifikation aufgrund der Einfachheit und Klarheit)   
 *  Aufsetzen von simplen Test
    Erklärung des grundsätzlichen Aufbaus des Test-Frameworks 
-   Erklärung von Coffe-Script-Syntax in dem Zusammenhang
+   Erklärung von Coffee-Script-Syntax in dem Zusammenhang
 
 ### Test-Framework
 *  mocha
 *  chai
-*  coffe-script
+*  coffee-script
 *  node.js
 
 ## Vorstellung der CleanCode-Namens-Regeln
@@ -59,7 +59,8 @@ Datum 06.01.2016
    der von TodoMVC benötigten Usecases
 *  mit TDD zyklische Implementierung der Reducer-Funktion
 *  Einführung des Round-Robin-Wechsels bei TDD-Implementierung pro Test/Implementations-Zyklus
-   1 Driver, 1 Navigator, 2 Zuhörerh
+   1 Driver, 1 Navigator, 2 Zuhörer/Fragesteller
+
 ## Diskussion mit Scrum-Master
 *  Reflektion des Tages
 *  Besprechung des groben Ziels für nächsten Tag
