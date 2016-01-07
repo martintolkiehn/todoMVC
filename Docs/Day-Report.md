@@ -71,6 +71,6 @@ Datum 06.01.2016
 Datum 08.01.2016
 ## Ablage der Dokumentation in Doc-Verzeichnis des TodoMVC-Projektes
 *  Zusammenfassung von Day 0 und 1 im "Docs/Day-Report.md"
-*  Ablage der CleanCode-Namens-Regeln in "Docs/CleanCodeNames.md"
+*  Ablage der [CleanCode-Namens-Regeln](https://github.com/martintolkiehn/todoMVC/blob/master/Docs/CleanCodeNames.md)
 
 ...(to be continued)
