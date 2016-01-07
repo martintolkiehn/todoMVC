@@ -4,11 +4,11 @@ Zusammenfassung der Einarbeitungs-Tage
 
 
 # Day 0
-Datum 07.11.2016
+Datum 05.01.2016
 
 *  Aufteilung der initialen Arbeit
 *  Aufsetzen eines Team-Github-Repository für Projekt TodoMVC mit allen Beteiligten als Contributor
-*  Grundsätzlicher Test des gemeinsamen Repositories (jeder Entwickler clont, commited, pushed, pulled, merded einmal)
+*  Grundsätzlicher Test des gemeinsamen Repositories (jeder Entwickler clont, commited, pushed, pulled, merged einmal)
 
 ## Arbeits-Verteilung
 *  Erarbeitung/Zusammenfassung der CleanCode-Namens-Grundregeln
@@ -19,7 +19,7 @@ Datum 07.11.2016
 
 
 # Day 1
-Datum 07.11.2016
+Datum 06.01.2016
 
 ## Einrichtung Test-Framework im Projekt TodoMVC
 
@@ -29,7 +29,7 @@ Datum 07.11.2016
    - lokal/global 
    - Speicherung Dependencies in package.json
    - automatisches Laden aller Module durch npm install aufgrund der definierten Abhängigkeiten in package.json
-*  Instalation der Test-Bibliotheken und coffee-script 
+*  Installation der Test-Bibliotheken und coffee-script 
    (Wahl von Coffee-Script als Sprache für die Test-Spezifikation aufgrund der Einfachheit und Klarheit)   
 *  Aufsetzen von simplen Test
    Erklärung des grundsätzlichen Aufbaus des Test-Frameworks 
@@ -71,6 +71,6 @@ Datum 07.11.2016
 Datum 08.01.2016
 ## Ablage der Dokumentation in Doc-Verzeichnis des TodoMVC-Projektes
 *  Zusammenfassung von Day 0 und 1 im "Docs/Day-Report.md"
-*  Ablage der CleanCode-Namens-Regeln in "Docs/???.md"
+*  Ablage der CleanCode-Namens-Regeln in "Docs/CleanCodeNames.md"
 
 ...(to be continued)
