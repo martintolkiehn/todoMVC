@@ -31,4 +31,4 @@ https://atom.io
 *  pigments # shows colors in the code
 
 ## BEWARE
-*nuclide # takes 100% cpu load*
+**nuclide # takes 100% cpu load**
