@@ -8,6 +8,18 @@
     <script src="script/react-with-addons.js"></script>
   </head>
   <body>
-    <h1>todoMVC</h1>
+    <div id='test'></div>
+    <script type="text/javascript">
+
+     function Header(){
+       return React.createElement('h1', {}, 'todoMVC');
+     }
+
+    ReactDOM.render(
+      Header(),
+      document.getElementById('test')
+    );
+
+    </script>
   </body>
 </html>
