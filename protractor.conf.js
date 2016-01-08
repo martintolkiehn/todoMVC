@@ -10,7 +10,14 @@ exports.config = {
     
     baseUrl: 'http://localhost:3000',
     
-    framework: 'mocha',
+    framework: 'jasmine',
       
-    allScriptsTimeout: 20000
+    allScriptsTimeout: 20000,
+
+    jasmineNodeOpts: {
+        isVerbose: true,
+        showColors: true,
+        includeStackTrace: true,
+        defaultTimeoutInterval: 10000
+    }
 };
