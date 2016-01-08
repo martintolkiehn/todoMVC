@@ -101,6 +101,7 @@ Datum 08.01.2016
 * Karma ausprobiert, aber ungeeignet für e2e Tests und liefert keine stabilen Ergebnisse
 * Stattdessen wurde protractor genommen, derzeit läuft die Integration in unserer Umgebung
 * tl;dr: Wir versuchen den Durchstich an das Frontend Testing
+* update: Erster möglicher Durchstich mit protractor und Zugriff über browser.driver direkt. Wichtiger Aspekt ist der, dass protractor für Nicht-Angular Applikationen anders zu [verwenden](https://github.com/sakshisingla/Protractor-Non-Angular-Tests/wiki/Creating-test-scripts-using-Protractor-for-non-angular-application) ist.
 
 ## Grooming session actano am Vormittag
 * Kleine Einführung in das Grooming in großer Runde mit allen Scrummaster und Entwickler
