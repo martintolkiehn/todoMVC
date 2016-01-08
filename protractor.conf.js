@@ -5,10 +5,6 @@ exports.config = {
     
     multiCapabilities: [{
       'browserName': 'firefox'
-    }, {
-      'browserName': 'chrome'
-    }, {
-      'browserName': 'phantomjs'
     }],
     
     baseUrl: 'http://localhost:3000',
