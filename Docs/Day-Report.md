@@ -74,7 +74,14 @@ Datum 07.01.2016
 *  Zusammenfassung von Day 0 und 1 im "Docs/Day-Report.md"
 *  Ablage der [CleanCode-Namens-Regeln](https://github.com/martintolkiehn/todoMVC/blob/master/Docs/CleanCodeNames.md)
 
-### Installierte Packages
+# Schritte im Kata
+* Test und Erstellung eines Stores
+* Test der Implementierung der Übergabe von Actions an den Store mit dispatch
+* Refactoring der Package Struktur zur besseren Gliederung der Module
+* Durchstich zu React
+* Test der Implementierung eines Header-Elements mit React
+
+## Installierte Packages
 * jsdom (Erstellung eines virtuellen DOMs zum testen von React-Komponenten)
 * chai-immutable (zum natürlichsprachlichen Testen von immutables)
 * mocha-jsdom (testen des virtuellen DOMs)
@@ -87,5 +94,8 @@ Datum 07.01.2016
 *  Reflektion des Tages
 *  Besprechung des groben Ziels für nächsten Tag
 *  Beschluss die Erfahrungen in einem Day-Report zusammenzufassen und zur Verfügung zu stellen
+
+# Day 3
+Datum 08.01.2016
 
 ...(to be continued)
