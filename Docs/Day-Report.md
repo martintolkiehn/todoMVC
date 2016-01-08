@@ -74,4 +74,18 @@ Datum 07.01.2016
 *  Zusammenfassung von Day 0 und 1 im "Docs/Day-Report.md"
 *  Ablage der [CleanCode-Namens-Regeln](https://github.com/martintolkiehn/todoMVC/blob/master/Docs/CleanCodeNames.md)
 
+### Installierte Packages
+* jsdom (Erstellung eines virtuellen DOMs zum testen von React-Komponenten)
+* chai-immutable (zum natürlichsprachlichen Testen von immutables)
+* mocha-jsdom (testen des virtuellen DOMs)
+* redux (flux machine)
+* react (framework für die ui)
+* coffee-react (react with coffee-script syntax)
+* react-addons-test-utils {addons zum testen von react}
+ 
+## Diskussion mit Scrum-Master
+*  Reflektion des Tages
+*  Besprechung des groben Ziels für nächsten Tag
+*  Beschluss die Erfahrungen in einem Day-Report zusammenzufassen und zur Verfügung zu stellen
+
 ...(to be continued)
