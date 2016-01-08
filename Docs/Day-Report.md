@@ -97,5 +97,20 @@ Datum 07.01.2016
 
 # Day 3
 Datum 08.01.2016
+## Browser Testing
+* Karma ausprobiert, aber ungeeignet für e2e Tests und liefert keine stabilen Ergebnisse
+* Stattdessen wurde protractor genommen, derzeit läuft die Integration in unserer Umgebung
+* tl;dr: Wir versuchen den Durchstich an das Frontend Testing
+
+## Grooming session actano am Vormittag
+* Kleine Einführung in das Grooming in großer Runde mit allen Scrummaster und Entwickler
+* Vordefinierte Userstories wurden vorgestellt
+* Einteilung der Teams, die die Stories kurz diskutieren, ausarbeiten und schätzen
+* nach 1h Bearbeitungszeit wurden die Ergebnisse in großer Runde diskutiert
+
+...(to be continued)
+
+# Day 4
+Datum 11.01.2016
 
 ...(to be continued)
