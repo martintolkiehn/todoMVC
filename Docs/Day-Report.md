@@ -74,12 +74,12 @@ Datum 07.01.2016
 *  Zusammenfassung von Day 0 und 1 im "Docs/Day-Report.md"
 *  Ablage der [CleanCode-Namens-Regeln](https://github.com/martintolkiehn/todoMVC/blob/master/Docs/CleanCodeNames.md)
 
-# Schritte im Kata
+## Schritte im Kata
 * Test und Erstellung eines Stores
-* Test der Implementierung der Übergabe von Actions an den Store mit dispatch
+* Test und Implementierung der Übergabe von Actions an den Store mit dispatch
 * Refactoring der Package Struktur zur besseren Gliederung der Module
 * Durchstich zu React
-* Test der Implementierung eines Header-Elements mit React
+* Test und Implementierung eines Header-Elements mit React
 
 ## Installierte Packages
 * jsdom (Erstellung eines virtuellen DOMs zum testen von React-Komponenten)
