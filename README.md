@@ -2,6 +2,8 @@
 Todo MVC Application using react / redux and node.js
 
 # testing - TODO: change for protractor
+npm install -g protractor
+
 ## test targets (named scripts in package.json)
 *  **test** - execute application logic tests
 *  **test:client** - execute all client (browser) tests on all browsers (PhantomJS, Chrome, Firefox)
