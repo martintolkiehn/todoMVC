@@ -24,9 +24,11 @@
   "homepage": "https://github.com/martintolkiehn/todoMVC#readme",
   "devDependencies": {
     "chai": "^3.4.1",
+    "chai-as-promised": "^5.2.0",
     "chai-immutable": "^1.5.3",
     "coffee-react": "^4.1.0",
     "coffee-script": "^1.10.0",
+    "express": "^4.13.3",
     "jsdom": "^7.2.2",
     "mocha": "^2.3.4",
     "phantomjs": "^1.9.19",

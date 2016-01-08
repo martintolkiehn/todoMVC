@@ -4,10 +4,13 @@ exports.config = {
     ],
     
     multiCapabilities: [{
-      'browserName': 'firefox'
+      'browserName': 'firefox',
+      'firefox_binary': process.env.FIREFOX_BIN
     }],
     
     baseUrl: 'http://localhost:3000',
     
-    framework: 'mocha'
+    framework: 'mocha',
+      
+    allScriptsTimeout: 20000
 };
