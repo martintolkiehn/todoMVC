@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha",
     "test:start-app-server": "coffee ./test/appServer.coffee -n",
-    "test:client": "karma start karma.conf.coffee --browsers my-phantomjs,my-chrome,my-firefox",
+    "test:client": "karma start --browsers my-phantomjs,my-chrome,my-firefox",
     "test:client:phantomjs": "karma start --browsers my-phantomjs",
     "test:client:chrome": "karma start --browsers my-chrome",
     "test:client:firefox": "karma start --browsers my-firefox"

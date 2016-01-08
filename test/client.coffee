@@ -3,11 +3,14 @@ describe 'test client', ->
   baseUrl = "http://127.0.0.1:#{port}/"
 
   it 'test correct title exists', ->
-    #browser().navigateTo baseUrl + 'index.html'
-    #browser().navigateTo 'http://www.golem.de'
-    alert browser().location().url()
-    #expect(element('title').text()).toBe('todoMVC')
-    true
+    browser().navigateTo '/index.html'
+    expect(element('title').text()).toBe('todoMVC')
     
-  it '2nd test', -> true
+  it '2nd test', ->
+    expect('Ulf').toBe('Olaf')
     
+  it '3.', ->
+    expect('Bruno').toBe('Karl-Heinz')
+    
+  it '4.', ->
+    expect('Fidelius').toBe('Fidelius')
