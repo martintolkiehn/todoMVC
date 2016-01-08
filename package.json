@@ -4,7 +4,13 @@
   "description": "Test Kata 1",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "test-support:start-app-server": "coffee ./test/appServer.coffee -n",
+    "test-support:start-webdriver": "webdriver-manager start",
+    "test:client": "protractor protractor.conf.js",
+    "test:client:phantomjs": "",
+    "test:client:chrome": "",
+    "test:client:firefox": ""
   },
   "repository": {
     "type": "git",
@@ -18,11 +24,15 @@
   "homepage": "https://github.com/martintolkiehn/todoMVC#readme",
   "devDependencies": {
     "chai": "^3.4.1",
+    "chai-as-promised": "^5.2.0",
     "chai-immutable": "^1.5.3",
     "coffee-react": "^4.1.0",
     "coffee-script": "^1.10.0",
+    "express": "^4.13.3",
     "jsdom": "^7.2.2",
     "mocha": "^2.3.4",
+    "phantomjs": "^1.9.19",
+    "protractor": "^3.0.0",
     "react-addons-test-utils": "^0.14.6"
   },
   "dependencies": {
