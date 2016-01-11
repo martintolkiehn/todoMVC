@@ -10,8 +10,8 @@ if (typeof document == 'undefined'){
 
 var App = React.createClass({
   render: function() {
-    return React.createElement('div', {}, [
-      React.createElement(Header, {name:'todoMVC'})
+    return React.createElement('div', {className: 'application-root'}, [
+      React.createElement(Header, {name: 'todoMVC'})
     ]);
   }
 });

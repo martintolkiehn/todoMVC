@@ -28,6 +28,10 @@ describe 'client', ->
     expect(browser.driver.getTitle()).to.eventually.equal 'todoMVC'
     done()
 
+  it 'has a root component', (done) ->
+    expect(browser.driver.findElement(By.className('application-root'))).to.exist
+    done()
+
   it 'has a header component', (done) ->
     expect(browser.driver.findElement(By.tagName('h1')).getText()).to.eventually.equal 'todoMVC'
     done()
