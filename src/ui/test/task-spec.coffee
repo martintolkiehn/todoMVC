@@ -6,11 +6,12 @@ TestUtils = require 'react-addons-test-utils'
 
 describe 'component task', ->
   it 'should exist', ->
+    taskName = 'Milch holen'
     renderedComponent = TestUtils.renderIntoDocument(
-      <Task />
+      <Task name={taskName} />
     )
     taskTag = TestUtils.findRenderedDOMComponentWithTag(
       renderedComponent, 'li'
     )
 
-    expect(taskTag).to.exist
+    expect(taskTag.textContent).to.equal(taskName)

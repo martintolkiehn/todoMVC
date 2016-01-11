@@ -2,7 +2,7 @@ var React = require('react');
 
 var Task = React.createClass({
   render: function() {
-    return React.createElement('li');
+    return React.createElement('li', {}, this.props.name);
   }
 });
 

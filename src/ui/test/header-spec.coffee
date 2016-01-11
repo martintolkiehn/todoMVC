@@ -6,11 +6,12 @@ TestUtils = require 'react-addons-test-utils'
 
 describe 'component header', ->
   it 'should exist', ->
+    headerName = 'todoMVC'
     renderedComponent = TestUtils.renderIntoDocument(
-      <Header name={'todoMVC'}/>
+      <Header name={headerName} />
     )
     headerTag = TestUtils.findRenderedDOMComponentWithTag(
       renderedComponent, 'h1'
     )
 
-    expect(headerTag.textContent).to.equal('todoMVC')
+    expect(headerTag.textContent).to.equal(headerName)
