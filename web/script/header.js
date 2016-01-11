@@ -13,11 +13,11 @@ var Header = React.createClass({
   }
 });
 
-module.exports = {
-  'Header': Header
-};
-
 ReactDOM.render(
   React.createElement(Header, {name: "todoMVC"}),
   document.getElementById('root')
 );
+
+module.exports = {
+  'Header': Header
+};
