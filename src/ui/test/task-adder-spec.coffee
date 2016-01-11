@@ -4,7 +4,7 @@ TestUtils = require 'react-addons-test-utils'
 
 {TaskAdder} = require '../../../web/script-components/task-adder'
 
-describe 'component header', ->
+describe 'component task adder', ->
   it 'should exist', ->
     renderedComponent = TestUtils.renderIntoDocument(
       <TaskAdder />
