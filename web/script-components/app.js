@@ -1,5 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var Header = require('./header.js').Header;
 
 if (typeof document == 'undefined'){
   var jsdom = require('jsdom');
@@ -7,17 +8,19 @@ if (typeof document == 'undefined'){
   global.window = document.defaultView
 }
 
-var Header = React.createClass({
+var App = React.createClass({
   render: function() {
-    return React.createElement('h1', {}, this.props.name);
+    return React.createElement('div', {}, [
+      React.createElement(Header, {name:'todoMVC'})
+    ]);
   }
 });
 
 ReactDOM.render(
-  React.createElement(Header, {name: "todoMVC"}),
+  React.createElement(App, {}),
   document.getElementById('root')
 );
 
 module.exports = {
-  'Header': Header
+  'App': App
 };

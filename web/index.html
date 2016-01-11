@@ -3,13 +3,15 @@
   <head>
     <title>todoMVC</title>
     <link rel="stylesheet" type="text/css" href="default.css"/>
-    <script src="script-lib/react.js"></script>
-    <script src="script-lib/react-dom.js"></script>
-    <script src="script-lib/react-with-addons.js"></script>
-    <script src="script-lib/module-adapter.js"></script>
+    <script type="text/javascript" src="script-lib/react.js"></script>
+    <script type="text/javascript" src="script-lib/react-dom.js"></script>
+    <script type="text/javascript" src="script-lib/react-with-addons.js"></script>
+    <script type="text/javascript" src="script-lib/module-adapter.js"></script>
   </head>
   <body>
     <div id="root"></div>
-    <script src="script/header.js"></script>
+    <script type="text/javascript" src="script-components/header.js"></script>
+    <script type="text/javascript">registerModule('./header.js');</script>
+    <script type="text/javascript" src="script-components/app.js">/*no need to register: only used once*/</script>
   </body>
 </html>
