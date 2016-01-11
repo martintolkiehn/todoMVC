@@ -35,3 +35,7 @@ describe 'client', ->
   it 'has a header component', (done) ->
     expect(browser.driver.findElement(By.tagName('h1')).getText()).to.eventually.equal 'todoMVC'
     done()
+
+  it 'has a TaskAdder component', (done) ->
+    expect(browser.driver.findElement(By.tagName('input'))).to.exist
+    done()
