@@ -3,7 +3,7 @@ React = require 'react'
 TestUtils = require 'react-addons-test-utils'
 TestUtilsAdditions = require 'react-testutils-additions'
 
-{Tasks} = require '../../../web/script-components/tasks'
+{Tasks} = require '../tasks'
 
 describe 'component tasks', ->
 

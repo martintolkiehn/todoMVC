@@ -2,7 +2,7 @@
 React = require 'react'
 TestUtils = require 'react-addons-test-utils'
 
-{Task} = require '../../../web/script-components/task'
+{Task} = require '../task'
 
 describe 'component task', ->
   it 'should exist', ->

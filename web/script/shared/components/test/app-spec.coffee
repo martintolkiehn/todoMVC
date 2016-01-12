@@ -3,9 +3,9 @@ React = require 'react'
 TestUtils = require 'react-addons-test-utils'
 jsdom = require 'jsdom'
 
-{App} = require '../../../web/script-components/app'
-{Header} = require '../../../web/script-components/header'
-{TaskAdder} = require '../../../web/script-components/task-adder'
+{App} = require '../app'
+{Header} = require '../header'
+{TaskAdder} = require '../task-adder'
 
 global.document = jsdom.jsdom('<!doctype html><html><body><div id="root"></div></body></html>')
 global.window = document.defaultView

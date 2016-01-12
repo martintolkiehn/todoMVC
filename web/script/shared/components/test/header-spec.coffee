@@ -2,7 +2,7 @@
 React = require 'react'
 TestUtils = require 'react-addons-test-utils'
 
-{Header} = require '../../../web/script-components/header'
+{Header} = require '../header'
 
 describe 'component header', ->
   it 'should exist', ->
