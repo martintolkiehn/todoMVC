@@ -13,13 +13,12 @@ isValidToDo = (todoState) ->
   typeof todoState.text  == 'string'
 
 isValidToDos = (todosState) ->
-  if (typeof todosState != 'object' or
-      typeof todosState.length  != 'number')
-    return false
-  for todoState in todosState
-    if not isValidToDo todoState
+  try
+    if not List.isList todosState
       return false
-  true
+    return todosState.every((todoState) -> isValidToDo(todoState))
+  catch
+    return false
 
 module.exports = {
   INITIAL_STATE

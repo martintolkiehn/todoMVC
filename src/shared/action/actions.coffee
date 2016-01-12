@@ -5,8 +5,8 @@ addToDo = (text) ->
   text: text
 
 isValid = (action) ->
-  typeof action = 'object' and
-  typeof action.type = 'string'
+  typeof action is 'object' and
+  typeof action.type is 'string'
 
 module.exports = {
   addToDo
