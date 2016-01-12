@@ -9,9 +9,9 @@ ToDoAccess = require '../todo-access'
 describe 'todo state access', ->
 
   it 'has initial state', ->
-    actualState = ToDoAccess.INITIAL_STATE
+    newState = ToDoAccess.INITIAL_STATE
     expectedState = List()
-    expect(actualState).to.equal(expectedState)
+    expect(newState).to.equal(expectedState)
 
   it 'add todo to list', ->
     text1 = 'Milch holen'
@@ -21,9 +21,9 @@ describe 'todo state access', ->
     oldState = List([
       todo1
     ])
-    actualState = ToDoAccess.addToDo oldState, text2
+    newState = ToDoAccess.addToDo oldState, text2
     expectedState = List([
       todo1
       todo2
     ])
-    expect(actualState).to.equal(expectedState)
+    expect(newState).to.equal(expectedState)
