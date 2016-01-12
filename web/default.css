@@ -1,13 +1,18 @@
 body {background-color: #F4F0E8; color: #93682E; font-family: arial; margin: 0;}
 @media screen  {
-  div, h1, h2, h3, table, p {
-    background-color: #EEEAE4;
+  div, h1, h2, h3, table, p, ul, li {
     border: 1px solid #C3985E;
+    margin: 0;
     }
     h1 {text-align: center;}
     #root {
-      background-color: #F4F0E8;
+      background-color: #DEEAD4;
       height: 100vh;
       padding: 4px 8px;
     }
+    div {background-color: #EEFAE4;}
+    h1, h2, h3  {background-color: #EEEAE4; width: 50%;display:block;height: 40px;padding: 10px;margin: 10px auto;}
+    ul {background-color: #DEEAF4; width: 50%;display:block;height: 20px;padding: 10px;margin: 10px auto;}
+    li {background-color: #DEFAE4;width: 50%;display:block;height: 20px;padding: 10px;margin: 10px auto;}
+    input {background-color: #BEEAF4;width: 50%;display:block;height: 20px;padding: 10px;margin: 10px auto;}
   }
