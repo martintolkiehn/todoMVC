@@ -2,6 +2,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var Header = require('./header.js').Header;
 var TaskAdder = require('./task-adder.js').TaskAdder;
+var Tasks = require('./tasks.js').Tasks;
 
 if (typeof document == 'undefined'){
   var jsdom = require('jsdom');
@@ -13,7 +14,8 @@ var App = React.createClass({
   render: function() {
     return React.createElement('div', {className: 'application-root'}, [
       React.createElement(Header, {name: 'todoMVC', key: 'header'}),
-      React.createElement(TaskAdder, {key: 'adder'})
+      React.createElement(TaskAdder, {key: 'adder'}),
+      React.createElement(Tasks, {key: 'tasks', tasks: []})
     ]);
   }
 });
