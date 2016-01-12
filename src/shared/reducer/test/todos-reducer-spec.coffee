@@ -17,7 +17,7 @@ describe 'todo reducer', ->
     expectedState = ToDoAccess.INITIAL_STATE
     expect(newState).to.equal(expectedState)
 
-  it 'should add new todo ', ->
+  it 'should return a new state including the todo given on ADD_TODO action', ->
     text = 'Milch holen'
     action = Actions.addToDo text
     oldState = ToDoAccess.INITIAL_STATE
