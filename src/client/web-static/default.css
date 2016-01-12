@@ -1,0 +1,21 @@
+body {
+	background-color: #F4F0E8; 
+	color: #93682E; 
+	font-family: arial; 
+	margin: 0;
+}
+
+div, h1, h2, h3, table, p {
+  background-color: #EEEAE4;
+  border: 1px solid #C3985E;
+}
+
+h1 {
+	text-align: center;
+}
+
+#todoApp {
+  background-color: #F4F0E8;
+  height: 100vh;
+  padding: 4px 8px;
+}

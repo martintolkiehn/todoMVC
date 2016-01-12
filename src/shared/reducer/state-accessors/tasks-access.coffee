@@ -1,25 +1,29 @@
-Immutable = require 'immutable'
+{ List } = require 'immutable'
 
 TaskAccess = require './task-access'
 { reduce } = require '../../util/common-util'
 
-initialState = []
+initialState = List()
 
 isValid = (tasksState) ->
-  if (tasksState.constructor.name != 'Array' or
-     typeof tasksState.length != 'number' or
-     tasksState.length < 0)
+  try
+    if (not List.isList(tasksState) or
+       typeof tasksState.size != 'number' or
+       tasksState.size < 0)
+      return false
+    tasksState.every (taskState) ->
+      TaskAccess.isValid taskState
+  catch
     return false
-  for taskState in tasksState
-    if not TaskAccess.isValid taskState then return false
-  true
 
 createNewTaskId = (tasksState) ->
-  1 + reduce 0, tasksState, (maxTaskId, taskState) ->
-    Math.max(maxTaskId, TaskAccess.getId taskState)
+  1 + tasksState.reduce(
+    ((maxId, taskState) -> Math.max maxId, taskState.get('id')),
+    0
+  )
 
 appendTask = (tasksState, newTask) ->
-  Immutable.List(tasksState).push(newTask).toJS()
+  tasksState.push(newTask)
 
 addNewTask = (tasksState, name) ->
   newTaskId = createNewTaskId tasksState
@@ -27,10 +31,8 @@ addNewTask = (tasksState, name) ->
   return appendTask tasksState, newTask
 
 getTaskPosById = (tasksState, id) ->
-  for taskState, pos in tasksState
-    if TaskAccess.getId(taskState) == id
-      return pos
-  return -1
+  tasksState.findIndex predicate: (opts) ->
+    (opts.value.get 'id') is id
 
 renameTask = (tasksState, id, name) ->
   pos = getTaskPosById tasksState, id
@@ -38,9 +40,8 @@ renameTask = (tasksState, id, name) ->
   if pos < 0
     return tasksState
 
-  return Immutable.List(taskState).update(pos, (taskState) ->
+  return taskState.update pos, (taskState) ->
     TaskAccess.rename taskState, name
-  ).toJS()
 
 deleteTask = (tasksState, id) ->
   pos = getTaskPosById tasksState, id
@@ -48,7 +49,7 @@ deleteTask = (tasksState, id) ->
   if pos < 0
     return tasksState
 
-  return Immutable.List(tasksState).delete(pos).toJS()
+  return tasksState.delete(pos)
 
 completeTask = (tasksState, id) ->
   pos = getTaskPosById tasksState, id
@@ -56,9 +57,8 @@ completeTask = (tasksState, id) ->
   if pos < 0
     return tasksState
 
-  return Immutable.List(taskState).update(pos, (taskState) ->
+  return taskState.update pos, (taskState) ->
     TaskAccess.complete taskState
-  ).toJS()
 
 uncompleteTask = (tasksState, id) ->
   pos = getTaskPosById tasksState, id
@@ -66,9 +66,8 @@ uncompleteTask = (tasksState, id) ->
   if pos < 0
     return tasksState
 
-  return Immutable.List(taskState).update(pos, (taskState) ->
+  return taskState.update pos, (taskState) ->
     TaskAccess.uncomplete taskState
-  ).toJS()
 
 toggleTaskCompletion = (tasksState, id) ->
   pos = getTaskPosById tasksState, id
@@ -76,14 +75,12 @@ toggleTaskCompletion = (tasksState, id) ->
   if pos < 0
     return tasksState
 
-  return Immutable.List(taskState).update(pos, (taskState) ->
+  return taskState.update pos, (taskState) ->
     TaskAccess.toggleCompletion taskState
-  ).toJS()
 
 deleteAllCompletedTasks = (tasksState) ->
-  return Immutable.List(tasksState).filter( (taskState) ->
+  return tasksState.filter (taskState) ->
     return !taskState.completed
-  ).toJS()
 
 module.exports = {
   initialState

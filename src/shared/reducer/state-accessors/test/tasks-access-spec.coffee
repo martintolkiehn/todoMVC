@@ -1,4 +1,8 @@
-{ expect } = require 'chai'
+chai = require 'chai'
+chaiImmutable = require 'chai-immutable'
+chai.use chaiImmutable
+expect = chai.expect
+{ List } = require 'immutable'
 
 TasksAccess = require '../tasks-access'
 TaskAccess = require '../task-access'
@@ -6,7 +10,7 @@ TaskAccess = require '../task-access'
 describe 'test tasks-access module', ->
 
   it 'test initial state', ->
-    targetTasksState = []
+    targetTasksState = List()
     actualTasksState = TasksAccess.initialState
     expect(actualTasksState).to.deep.equal(targetTasksState)
 
@@ -16,15 +20,15 @@ describe 'test tasks-access module', ->
     expect(isValid).to.equal(true)
 
   it 'test method isValid(empty array): true', ->
-    validTasksState = []
+    validTasksState = List()
     isValid = TasksAccess.isValid validTasksState
     expect(isValid).to.equal(true)
 
   it 'test method isValid(array of valid tasks): true', ->
-    validTasksState = [
+    validTasksState = List([
       TaskAccess.createTask 1, 'Milch holen'
       TaskAccess.createTask 2, 'Wurst nicht vergessen'
-    ]
+    ])
     isValid = TasksAccess.isValid validTasksState
     expect(isValid).to.equal(true)
 
@@ -39,17 +43,17 @@ describe 'test tasks-access module', ->
     expect(isValid).to.equal(false)
 
   it 'test method isValid(array of invalid tasks): false', ->
-    invalidTasksState = [
+    invalidTasksState = List([
       42
-    ]
+    ])
     isValid = TasksAccess.isValid invalidTasksState
     expect(isValid).to.equal(false)
 
   it 'test method createNewTaskId', ->
-    tasksState = [
+    tasksState = List([
       TaskAccess.createTask 1, 'Milch holen'
       TaskAccess.createTask 2, 'Wurst nicht vergessen'
-    ]
+    ])
     expectedTaskId = 3
     createdTaskId = TasksAccess.createNewTaskId tasksState
     expect(createdTaskId).to.deep.equal(expectedTaskId)
@@ -58,14 +62,14 @@ describe 'test tasks-access module', ->
     task1 = TaskAccess.createTask 1, 'Milch holen'
     task2 = TaskAccess.createTask 2, 'Wurst nicht vergessen'
     task3 = TaskAccess.createTask 3, 'und die Oma besuchen'
-    oldTasksState = [
+    oldTasksState = List([
       task1
       task2
-    ]
-    expectedTasksState = [
+    ])
+    expectedTasksState = List([
       task1
       task2
       task3
-    ]
+    ])
     actualTasksState = TasksAccess.appendTask oldTasksState, task3
     expect(actualTasksState).to.deep.equal(expectedTasksState)

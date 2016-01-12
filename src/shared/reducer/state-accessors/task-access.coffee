@@ -1,36 +1,42 @@
-Immutable = require 'immutable'
+{ Map } = require 'immutable'
 
-createTask = (id, name = '') ->
+createTask = (id, name = '') -> Map({
   id: id
   name: name
   completed: false
+})
 
 isValid = (taskState) ->
-  typeof taskState == 'object' and
-  typeof taskState.id == 'number' and taskState.id > 0
-  typeof taskState.name == 'string' and
-  typeof taskState.completed == 'boolean'
+  try
+    taskState and
+    Map.isMap(taskState) and
+    typeof taskState.get('id') == 'number' and
+    taskState.get('id') > 0 and
+    typeof taskState.get('name') == 'string' and
+    typeof taskState.get('completed') == 'boolean'
+  catch
+    return false
 
 getId = (taskState) ->
-  taskState.id
+  taskState.get 'id'
 
 getName = (taskState) ->
-  taskState.name
+  taskState.get 'name'
 
 isCompleted = (taskState) ->
-  taskState.completed
+  taskState.get 'completed'
 
 rename = (taskState, newName) ->
-  Immutable.Map(taskState).updateIn(['name'], (oldName) -> newName).toJS()
+  taskState.updateIn ['name'], (oldName) -> newName
 
 complete = (taskState) ->
-  Immutable.Map(taskState).updateIn(['completed'], (oldFlag) -> true).toJS()
+  taskState.updateIn ['completed'], (oldFlag) -> true
 
 uncomplete = (taskState, id) ->
-  Immutable.Map(taskState).updateIn(['completed'], (oldFlag) -> false).toJS()
+  taskState.updateIn ['completed'], (oldFlag) -> false
 
 toggleCompletion = (taskState, id) ->
-  Immutable.Map(taskState).updateIn(['completed'], (oldFlag) -> !oldFlag).toJS()
+  taskState.updateIn ['completed'], (oldFlag) -> !oldFlag
 
 module.exports = {
   createTask
