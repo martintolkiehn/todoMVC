@@ -110,9 +110,19 @@ Datum 08.01.2016
 * Einteilung der Teams, die die Stories kurz diskutieren, ausarbeiten und schätzen
 * nach 1h Bearbeitungszeit wurden die Ergebnisse in großer Runde diskutiert
 
-...(to be continued)
-
 # Day 4
 Datum 11.01.2016
+## Travis Integration
+* Einrichtung von Continuous Integration mit Travis unter (https://travis-ci.org)
+  (https://travis-ci.org/martintolkiehn/todoMVC)
+
+## Teilnahme an Vortrag über Motivation von Laura
+
+## Weiterentwicklung der todoMVC
+* Refactoring: Trennung von Tests und Implementierung für app und header
+* Test und Implementierung für task component
 
 ...(to be continued)
+
+# Day 5
+Datum 12.01.2016
