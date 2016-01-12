@@ -1,0 +1,49 @@
+{
+  "name": "todo-mvc",
+  "version": "0.0.1",
+  "description": "todoMVC",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "test-support:start-app-server": "coffee ./test/server-for-ui-tests.coffee -n",
+    "test:client": "protractor protractor.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martintolkiehn/todoMVC.git"
+  },
+  "keywords": [
+    "todoMVC",
+    "react",
+    "redux",
+    "webpack"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/martintolkiehn/todoMVC/issues"
+  },
+  "homepage": "https://github.com/martintolkiehn/todoMVC#readme",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "chai-as-promised": "^5.2.0",
+    "chai-immutable": "^1.5.3",
+    "coffee-react": "^4.1.0",
+    "coffee-script": "^1.10.0",
+    "express": "^4.13.3",
+    "jsdom": "^7.2.2",
+    "mocha": "^2.3.4",
+    "protractor": "^3.0.0",
+    "react-addons-test-utils": "^0.14.6",
+    "react-dom": "^0.14.6",
+    "react-testutils-additions": "^0.16.0",
+    "redux-devtools": "^3.0.1"
+  },
+  "dependencies": {
+    "immutable": "^3.7.6",
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6",
+    "react-redux": "^4.0.6",
+    "redux": "^3.0.5"
+  }
+}

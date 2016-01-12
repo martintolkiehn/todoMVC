@@ -1,0 +1,5 @@
+--compilers coffee:coffee-react/register
+--colors
+--reporter spec
+--ui tdd
+**/test/*-spec.coffee
