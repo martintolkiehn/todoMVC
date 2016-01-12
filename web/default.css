@@ -14,5 +14,5 @@ body {background-color: #F4F0E8; color: #93682E; font-family: arial; margin: 0;}
     h1, h2, h3  {background-color: #EEEAE4; width: 50%;display:block;height: 40px;padding: 10px;margin: 10px auto;}
     ul {background-color: #DEEAF4; width: 50%;display:block;height: 20px;padding: 10px;margin: 10px auto;}
     li {background-color: #DEFAE4;width: 50%;display:block;height: 20px;padding: 10px;margin: 10px auto;}
-    input {background-color: #BEEAF4;width: 50%;display:block;height: 20px;padding: 10px;margin: 10px auto;}
+    input {background-color: #BEEAF4;width: 50%;display:block;height: 20px;padding: 10px;margin: 10px auto;border:solid 3px #93682E;}
   }
