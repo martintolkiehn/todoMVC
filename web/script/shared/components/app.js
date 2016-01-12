@@ -1,5 +1,9 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var Provider = require('react-redux').Provider;
+
+var Store = require('../core/store.js');
+
 var Header = require('./header.js').Header;
 var TaskAdder = require('./task-adder.js').TaskAdder;
 var Tasks = require('./tasks.js').Tasks;
@@ -12,7 +16,7 @@ if (typeof document == 'undefined'){
 
 var App = React.createClass({
   render: function() {
-    return React.createElement('div', {className: 'application-root'}, [
+    return React.createElement('div', {className: 'application-root', key: this.props.key}, [
       React.createElement(Header, {name: 'todoMVC', key: 'header'}),
       React.createElement(TaskAdder, {key: 'adder'}),
       React.createElement(Tasks, {key: 'tasks', tasks: []})
@@ -20,8 +24,11 @@ var App = React.createClass({
   }
 });
 
+var appElement =   React.createElement(App, {key: 'root'});
+var store = Store.makeStore();
+
 ReactDOM.render(
-  React.createElement(App, {}),
+  React.createElement(Provider, {store: store}, appElement),
   document.getElementById('root')
 );
 

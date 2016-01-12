@@ -5,6 +5,8 @@ var registerModule = {};
 (function() {
   var _React = React;
   var _ReactDOM = ReactDOM;
+  var _Redux = Redux;
+  var _ReactRedux = ReactRedux;
   var moduleRegistry = {};
 
   require = function(name) {
@@ -13,6 +15,10 @@ var registerModule = {};
         return _React;
       case 'react-dom':
         return _ReactDOM;
+      case 'redux':
+        return _Redux;
+      case 'react-redux':
+        return _ReactRedux;
       default:
         var module = moduleRegistry[name];
         return module ? module : {};
@@ -20,7 +26,10 @@ var registerModule = {};
   };
 
   registerModule = function(name) {
-    moduleRegistry[name] = module.exports;
+    for (var i = 0; i < arguments.length; i++) {
+      var name = arguments[i];
+      moduleRegistry[name] = module.exports;
+    }
     module = {exports: {}};
   }
 })();

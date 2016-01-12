@@ -6,10 +6,17 @@
     <script type="text/javascript" src="script/lib/react.js"></script>
     <script type="text/javascript" src="script/lib/react-dom.js"></script>
     <script type="text/javascript" src="script/lib/react-with-addons.js"></script>
+    <script type="text/javascript" src="script/lib/redux.js"></script>
+    <script type="text/javascript" src="script/lib/react-redux.js"></script>
+
     <script type="text/javascript" src="script/client/module-adapter.js"></script>
   </head>
   <body>
     <div id="root"></div>
+    <script type="text/javascript" src="script/shared/core/core.js"></script><script type="text/javascript">registerModule('./core.js');</script>
+    <script type="text/javascript" src="script/shared/core/reducer.js"></script><script type="text/javascript">registerModule('./reducer');</script>
+    <script type="text/javascript" src="script/shared/core/store.js"></script><script type="text/javascript">registerModule('./store.js', '../core/store.js');</script>
+
     <script type="text/javascript" src="script/shared/components/header.js"></script><script type="text/javascript">registerModule('./header.js');</script>
     <script type="text/javascript" src="script/shared/components/task-adder.js"></script><script type="text/javascript">registerModule('./task-adder.js');</script>
     <script type="text/javascript" src="script/shared/components/task.js"></script><script type="text/javascript">registerModule('./task.js');</script>
