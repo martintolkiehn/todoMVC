@@ -8,11 +8,11 @@ var Tasks = React.createClass({
 
     for (var i = 0; i < taskModels.length; i++) {
       var taskModel = taskModels[i];
-      var taskElement = React.createElement(Task, {name: taskModel.name, key:i});
+      var taskElement = React.createElement(Task, {name: taskModel.name, key: i});
       taskElements.push(taskElement);
     }
 
-    return React.createElement('ul', {}, taskElements);
+    return React.createElement('ul', {key: this.props.key}, taskElements);
   }
 });
 

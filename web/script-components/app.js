@@ -12,8 +12,8 @@ if (typeof document == 'undefined'){
 var App = React.createClass({
   render: function() {
     return React.createElement('div', {className: 'application-root'}, [
-      React.createElement(Header, {name: 'todoMVC'}),
-      React.createElement(TaskAdder)
+      React.createElement(Header, {name: 'todoMVC', key: 'header'}),
+      React.createElement(TaskAdder, {key: 'adder'})
     ]);
   }
 });
