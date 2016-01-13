@@ -57,7 +57,7 @@ class TodoItem extends Component
     return (
       <li
         className={
-          classnames(
+          Classnames(
             completed: todo.completed
             editing: @state.editing
           )
