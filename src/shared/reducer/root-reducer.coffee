@@ -9,6 +9,4 @@ _reduce = combineReducers {
 reduce = (state, action) ->
   Map(_reduce state, action)
 
-module.exports = {
-  reduce
-}
+module.exports = reduce
