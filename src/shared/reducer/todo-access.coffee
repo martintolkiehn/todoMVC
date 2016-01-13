@@ -26,12 +26,11 @@ addTodo = (todosState, text) ->
   todosState.push(createTodo newId, text)
 
 editTodo = (todosState, id, newText) ->
-  pos = todosState.findIndex((todoState) -> id is todoState.get('id'))
-  return todosState if pos < 0
-  unless newText
-    todosState.delete pos
+  if newText is ''
+    return todosState.filter (todo) -> id isnt todo.get 'id'
   else
-    todosState.update(pos, (todoState) -> todoState.update('text', (oldText) -> newText))
+    return todosState.map (todo) ->
+      if id is todo.get 'id' then todo.set 'text', newText else todo
 
 deleteTodo = (todosState, id) ->
   pos = todosState.findIndex((todoState) -> id is todoState.get('id'))
