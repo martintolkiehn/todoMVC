@@ -5,7 +5,7 @@ ActionTypes = require '../action-types'
 describe 'todo actions', ->
   it 'add todo action', ->
     text = 'Milch holen'
-    actualAction = Actions.addToDo text
+    actualAction = Actions.addTodo text
     expectedAction =
       type: ActionTypes.ADD_TODO
       text: text

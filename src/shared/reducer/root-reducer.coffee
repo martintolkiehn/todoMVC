@@ -1,12 +1,12 @@
-{combineReducers} = require 'redux'
+{combineReducers} = require 'redux-immutablejs'
 {Map} = require 'immutable'
 
-ToDosReducer = require './todos-reducer'
+TodosReducer = require './todos-reducer'
 
-_reduce = combineReducers {
-  todos: ToDosReducer.reduce
+reduce = combineReducers {
+  todos: TodosReducer.reduce
 }
-reduce = (state, action) ->
-  Map(_reduce state, action)
 
-module.exports = reduce
+module.exports = {
+  reduce
+}

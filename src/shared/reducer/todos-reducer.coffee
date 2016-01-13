@@ -1,16 +1,15 @@
 Actions = require '../action/actions'
 ActionTypes = require '../action/action-types'
-ToDoAccess = require './todo-access'
+TodoAccess = require './todo-access'
 
 reduce = (state, action) ->
-  if not ToDoAccess.isValidToDos state
-    return ToDoAccess.INITIAL_STATE
+  return TodoAccess.INITIAL_STATE unless TodoAccess.isValidTodos state
 
   return state unless Actions.isValid(action)
 
   switch action.type
     when ActionTypes.ADD_TODO
-      return ToDoAccess.addToDo state, action.text
+      return TodoAccess.addTodo state, action.text
     else
       return state
 

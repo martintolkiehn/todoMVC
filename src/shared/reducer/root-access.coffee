@@ -1,8 +1,8 @@
 {Map} = require 'immutable'
-ToDoAccess = require './todo-access'
+TodoAccess = require './todo-access'
 
 INITIAL_STATE = Map({
-  todos: ToDoAccess.INITIAL_STATE
+  todos: TodoAccess.INITIAL_STATE
 })
 
 module.exports = {

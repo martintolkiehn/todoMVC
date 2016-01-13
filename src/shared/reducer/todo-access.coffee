@@ -2,28 +2,28 @@
 
 INITIAL_STATE = List()
 
-createToDo = (text) ->
+createTodo = (text) ->
   Map({text: text})
 
-addToDo = (todosState, text) ->
-  todosState.push(createToDo text)
+addTodo = (todosState, text) ->
+  todosState.push(createTodo text)
 
-isValidToDo = (todoState) ->
+isValidTodo = (todoState) ->
   typeof todoState == 'object' and
   typeof todoState.text  == 'string'
 
-isValidToDos = (todosState) ->
+isValidTodos = (todosState) ->
   try
     if not List.isList todosState
       return false
-    return todosState.every((todoState) -> isValidToDo(todoState))
+    return todosState.every((todoState) -> isValidTodo(todoState))
   catch
     return false
 
 module.exports = {
   INITIAL_STATE
-  createToDo
-  addToDo
-  isValidToDo
-  isValidToDos
+  createTodo
+  addTodo
+  isValidTodo
+  isValidTodos
 }

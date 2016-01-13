@@ -8,24 +8,25 @@ ImmutablePropTypes = require 'react-immutable-proptypes'
 
 Actions = require '../../action/actions'
 TodoAdder = require '../components/todo-adder'
+TodoList = require '../components/todo-list'
 
 class App extends Component
   render: ->
-    { todos, actions } = @props
+    {todos, actions} = @props
     return (
       <div>
-        <TodoAdder  addTodo={actions.addTodo} />
+        <TodoAdder addTodo={actions.addTodo} />
+        <TodoList todos={todos} actions={actions} />
       </div>
     )
 
   @propTypes:
-    todos: ImmutablePropTypes.list #.isRequired
-    #actions: ImmutablePropTypes.object.isRequired
+    todos: ImmutablePropTypes.list.isRequired
+    actions: PropTypes.object.isRequired
 
 mapStateToProps = (state) ->
-  console.log state.todos
   return {
-    todos: state.todos
+    todos: state.get('todos')
   }
 
 mapDispatchToProps = (dispatch) ->

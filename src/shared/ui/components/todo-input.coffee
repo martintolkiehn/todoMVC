@@ -6,8 +6,7 @@ class TodoInput extends Component
 
   constructor: (props, context) ->
     super props, context
-    @state =
-      text: @props.text ? ''
+    @state = text: @props.text ? ''
 
   handleSubmit: (e) ->
     text = e.target.value.trim()
