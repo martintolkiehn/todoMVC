@@ -33,6 +33,11 @@ editTodo = (todosState, id, newText) ->
   else
     todosState.update(pos, (todoState) -> todoState.update('text', (oldText) -> newText))
 
+deleteTodo = (todosState, id) ->
+  pos = todosState.findIndex((todoState) -> id is todoState.get('id'))
+  return todosState if pos < 0
+  todosState.delete pos
+
 module.exports = {
   INITIAL_STATE
   createTodo
@@ -40,4 +45,5 @@ module.exports = {
   isValidTodos
   addTodo
   editTodo
+  deleteTodo
 }
