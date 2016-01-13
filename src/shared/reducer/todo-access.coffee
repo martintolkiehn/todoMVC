@@ -25,10 +25,19 @@ addTodo = (todosState, text) ->
   newId = 1 + (todosState.maxBy((todoState) -> todoState.get('id'))).get('id')
   todosState.push(createTodo newId, text)
 
+editTodo = (todosState, id, newText) ->
+  pos = todosState.findIndex((todoState) -> id is todoState.get('id'))
+  return todosState if pos < 0
+  unless newText
+    todosState.delete pos
+  else
+    todosState.update(pos, (todoState) -> todoState.update('text', (oldText) -> newText))
+
 module.exports = {
   INITIAL_STATE
   createTodo
   isValidTodo
   isValidTodos
   addTodo
+  editTodo
 }
