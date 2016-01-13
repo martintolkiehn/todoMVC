@@ -14,7 +14,7 @@ class App extends Component
   render: ->
     {todos, actions} = @props
     return (
-      <div>
+      <div className="todoApp">
         <TodoAdder addTodo={actions.addTodo} />
         <TodoList todos={todos} actions={actions} />
       </div>

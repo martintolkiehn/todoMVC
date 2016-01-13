@@ -11,23 +11,29 @@ class TodoList extends Component
     super props, context
 
   handleDeleteCompleted: () ->
-    atLeastOneCompleted = @props.todos.some todo -> todo.completed
+    atLeastOneCompleted = @props.todos.some todo -> todo.get 'completed'
     @props.actions.deleteAllCompletedTodos() if atLeastOneCompleted
+
+  renderToggleAll: () ->
+    {todos, actions} = @props
+
+    completedCount = todos.reduce(
+     (count, todo) ->  count + (if todo.get('completed') then 1 else 0),
+     0
+    )
+
+    if todos.size > 0
+      return (
+        <input
+          className="toggle-all"
+          type="checkbox"
+          checked={completedCount is todos.size}
+          onChange={actions.toggleAllTodos}
+        />
+      )
 
   # handleShow: (filter) ->
   #   @setState {filter}
-  #
-  # renderToggleAll: (completedCount) ->
-  #   {todos, actions} = @props
-  #   if todos.size > 0
-  #     return (
-  #       <input
-  #         className="toggle-all"
-  #         type="checkbox"
-  #         checked={completedCount is todos.size}
-  #         onChange={actions.toggleAllTodos}
-  #       />
-  #     )
   #
   # renderFooter(completedCount)
   #   {todos} = @props
@@ -47,23 +53,24 @@ class TodoList extends Component
 
   render: ->
     {todos, actions} = @props
+    console.log actions
     #{filter} = @state
 
     #filteredTodos = todos.filter TODO_FILTERS[filter]
-    #completedCount = todos.reduce(
-    #  (count, todo) ->  count + (if todo.completed then 1 else 0),
-    #  0
-    #)
 
     return (
       <section className="todoList">
+        {@renderToggleAll()}
         <ul>
           {
-            todos.map( (todo) ->
+            todos.map( (todo, pos) ->
               <TodoItem
-                key={todo.id}
+                key={pos}
+                pos={pos}
                 todo={todo}
-                {...actions}
+                deleteTodo={actions.deleteTodo}
+                toggleTodo={actions.toggleTodo}
+                changeTodoText={actions.changeTodoText}
               />
             )
           }

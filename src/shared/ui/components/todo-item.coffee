@@ -14,23 +14,26 @@ class TodoItem extends Component
   handleDoubleClick: ->
     @setState editing: true
 
-  handleSave: (id, text) ->
+  handleSave: (text) ->
+    {deleteTodo, changeTodoText, pos} = @props
+
     if text.length is 0
-      @props.deleteTodo id
+      deleteTodo pos
     else
-      @props.editTodo id, text
+      changeTodoText pos, text
     @setState editing: false
 
   render: ->
-    { todo, completeTodo, deleteTodo } = @props
+    {deleteTodo, toggleTodo, pos} = @props
 
     element = null
     if @state.editing
       element = (
-        <TodoTextInput
-          text={todo.text}
+        <TodoInput
+          className="todoAdder"
+          text={@props.todo.get 'text'}
           editing={@state.editing}
-          onSave={(text) -> @handleSave todo.id, text}
+          onSave={(text) => @handleSave text}
         />
       )
     else
@@ -39,17 +42,17 @@ class TodoItem extends Component
           <input
             className="todoCompleted"
             type="checkbox"
-            checked={todo.completed}
-            onChange={() -> completeTodo todo.id}
+            checked={@props.todo.get 'completed'}
+            onChange={() -> toggleTodo pos}
           />
           <label
             onDoubleClick={@handleDoubleClick.bind this}
           >
-            {todo.text}
+            {@props.todo.get 'text'}
           </label>
           <button
             className="todoDelete"
-            onClick={() -> deleteTodo todo.id}
+            onClick={() -> deleteTodo pos}
           />
         </div>
       )
@@ -58,9 +61,9 @@ class TodoItem extends Component
       <li
         className={
           Classnames(
-            completed: todo.completed
+            completed: @props.todo.get 'completed'
             editing: @state.editing
-          )
+          ) + ' pos' + pos
         }
       >
         {element}
@@ -68,9 +71,10 @@ class TodoItem extends Component
     )
 
   @propTypes:
-    editTodo: PropTypes.func.isRequired
+    changeTodoText: PropTypes.func.isRequired
     deleteTodo: PropTypes.func.isRequired
-    completeTodo: PropTypes.func.isRequired
+    toggleTodo: PropTypes.func.isRequired
     todo: ImmutablePropTypes.map.isRequired
+    pos: PropTypes.number.isRequired
 
 module.exports = TodoItem

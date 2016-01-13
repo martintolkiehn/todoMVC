@@ -1,18 +1,86 @@
-body {background-color: #F4F0E8; color: #93682E; font-family: arial; margin: 0;}
-@media screen  {
-  div, h1, h2, h3, table, p, ul, li {
-    border: 1px solid #C3985E;
-    margin: 0;
-    }
-    h1 {text-align: center;}
-    #root {
-      background-color: #DEEAD4;
-      height: 100vh;
-      padding: 4px 8px;
-    }
-    div {background-color: #EEFAE4;}
-    h1, h2, h3  {background-color: #EEEAE4; width: 50%;display:block;height: 40px;padding: 10px;margin: 10px auto;}
-    ul {background-color: #DEEAF4; width: 50%;display:block;height: 20px;padding: 10px;margin: 10px auto;}
-    li {background-color: #DEFAE4;width: 50%;display:block;height: 20px;padding: 10px;margin: 10px auto;}
-    input {background-color: #BEEAF4;width: 50%;display:block;height: 20px;padding: 10px;margin: 10px auto;border:solid 3px #93682E;}
-  }
+body {
+  font-family: geneva;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 300;
+  background: #F2F5EB;
+  display: block;
+}
+
+#root {
+  margin: 0 auto;
+  min-width: 230px;
+  max-width: 550px;
+  background: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  display: block;
+}
+
+.todoApp {
+  background: #FFF8EF;
+  box-sizing: border-box;
+  display: block;
+}
+
+.todoApp header {
+  height: 200px;
+  box-sizing: border-box;
+  display: block;
+}
+
+.todoApp section {
+  box-sizing: border-box;
+  display: block;
+}
+
+header h1 {
+  width: 100%;
+  font-size: 80px;
+  font-weight: 100;
+  padding: 0;
+  margin: 10px;
+  text-align: center;
+  color: rgba(50, 50, 50, 0.15);
+  box-sizing: border-box;
+  display: block;
+}
+
+header input.newTodo {
+  width: 100%;
+  font-size: 24px;
+  outline: none;
+  padding: 16px 16px 16px 60px;
+  border: none;
+  background: rgba(0, 0, 0, 0.003);
+  box-sizing: border-box;
+  display: block;
+  box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2);
+}
+
+header input.todoAdder {
+  background: #FFFF00;
+}
+
+header input.todoCompleted{
+  background: #FF0000;
+}
+
+header input.todoDelete{
+  background: #00FF00;
+}
+
+header input.toggle-all{
+  background: #00FFFF;
+}
+
+section ul {
+  box-sizing: border-box;
+  display: block;
+}
+
+section li {
+  font-size: 24px;
+  box-sizing: border-box;
+  display: block;
+}
