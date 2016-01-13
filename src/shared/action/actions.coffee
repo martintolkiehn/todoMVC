@@ -1,6 +1,6 @@
 ActionTypes = require './action-types'
 
-addToDo = (text) ->
+addTodo = (text) ->
   type: ActionTypes.ADD_TODO
   text: text
 
@@ -9,6 +9,6 @@ isValid = (action) ->
   typeof action.type is 'string'
 
 module.exports = {
-  addToDo
+  addTodo
   isValid
 }
