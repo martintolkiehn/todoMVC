@@ -38,3 +38,187 @@ describe 'todo reducer', ->
       )
     ])
     expect(newState).to.equal(expectedState)
+
+  it 'should change the text of an existing todo', ->
+    action = type: ActionTypes.CHANGE_TODO_TEXT, pos: 0, text: 'laktosefreie Milch holen'
+    oldState = List([
+      Map(
+        text: 'Milch holen'
+        completed: false
+      )
+    ])
+    newState = TodoReducer.reduce oldState, action
+    expectedState = List([
+      Map(
+        text: 'laktosefreie Milch holen'
+        completed: false
+      )
+    ])
+    expect(newState).to.equal(expectedState)
+
+  it 'should delete an existing todo item by changing to a new empty text', ->
+    action = type: ActionTypes.CHANGE_TODO_TEXT, pos: 1, text: ''
+    oldState = List([
+      Map(
+        text: 'Milch holen'
+        completed: false
+      )
+      Map(
+        text: 'laktosefreie Milch holen'
+        completed: false
+      )
+    ])
+    newState = TodoReducer.reduce oldState, action
+    expectedState = List([
+      Map(
+        text: 'Milch holen'
+        completed: false
+      )
+    ])
+    expect(newState).to.equal(expectedState)
+
+  it 'should delete a todo by its position on delete action', ->
+    action = type: ActionTypes.DELETE_TODO, pos: 1
+    oldState = List([
+      Map(
+        text: 'Milch holen'
+        completed: false
+      )
+      Map(
+        text: 'laktosefreie Milch holen'
+        completed: false
+      )
+    ])
+    newState = TodoReducer.reduce oldState, action
+    expectedState = List([
+      Map(
+        text: 'Milch holen'
+        completed: false
+    )
+    ])
+    expect(newState).to.equal(expectedState)
+
+  it 'should change the complete flag to true on a todo item', ->
+    action = type: ActionTypes.TOGGLE_TODO, pos: 0
+    oldState = List([
+      Map(
+        text: 'Milch holen'
+        completed: false
+      )
+    ])
+    newState = TodoReducer.reduce oldState, action
+    expectedState = List([
+      Map(
+        text: 'Milch holen'
+        completed: true
+      )
+    ])
+    expect(newState).to.equal(expectedState)
+
+  it 'should change the complete flag to false on a todo item', ->
+    action = type: ActionTypes.TOGGLE_TODO, pos: 0
+    oldState = List([
+      Map(
+        text: 'Milch holen'
+        completed: true
+      )
+    ])
+    newState = TodoReducer.reduce oldState, action
+    expectedState = List([
+      Map(
+        text: 'Milch holen'
+        completed: false
+      )
+    ])
+    expect(newState).to.equal(expectedState)
+
+  it 'should change the complete flag to true on all todo items', ->
+    action = type: ActionTypes.TOGGLE_ALL_TODOS
+    oldState = List([
+      Map(
+        text: 'Milch holen'
+        completed: false
+      )
+      Map(
+        text: 'laktosefreie Milch holen'
+        completed: true
+      )
+      Map(
+        text: 'Brot nicht vergessen'
+        completed: false
+      )
+    ])
+    newState = TodoReducer.reduce oldState, action
+    expectedState = List([
+      Map(
+        text: 'Milch holen'
+        completed: true
+      )
+      Map(
+        text: 'laktosefreie Milch holen'
+        completed: true
+      )
+      Map(
+        text: 'Brot nicht vergessen'
+        completed: true
+      )
+    ])
+    expect(newState).to.equal(expectedState)
+
+  it 'should change the complete flag to false on all todo items', ->
+    action = type: ActionTypes.TOGGLE_ALL_TODOS
+    oldState = List([
+      Map(
+        text: 'Milch holen'
+        completed: true
+      )
+      Map(
+        text: 'laktosefreie Milch holen'
+        completed: true
+      )
+      Map(
+        text: 'Brot nicht vergessen'
+        completed: true
+      )
+    ])
+    newState = TodoReducer.reduce oldState, action
+    expectedState = List([
+      Map(
+        text: 'Milch holen'
+        completed: false
+      )
+      Map(
+        text: 'laktosefreie Milch holen'
+        completed: false
+      )
+      Map(
+        text: 'Brot nicht vergessen'
+        completed: false
+      )
+    ])
+    expect(newState).to.equal(expectedState)
+
+  it 'should delete all completed todo items', ->
+    action = type: ActionTypes.DELETE_ALL_COMPLETED_TODOS
+    oldState = List([
+      Map(
+        text: 'Milch holen'
+        completed: true
+      )
+      Map(
+        text: 'laktosefreie Milch holen'
+        completed: false
+      )
+      Map(
+        text: 'Brot nicht vergessen'
+        completed: true
+      )
+    ])
+    newState = TodoReducer.reduce oldState, action
+    expectedState = List([
+      Map(
+        text: 'laktosefreie Milch holen'
+        completed: false
+      )
+    ])
+    expect(newState).to.equal(expectedState)

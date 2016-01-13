@@ -33,14 +33,14 @@ describe 'todo state access', ->
     ])
     expect(newState).to.equal(expectedState)
 
-  it 'should change an existing new todo to list', ->
+  it 'should change the text of an existing todo', ->
     oldState = List([
       Map(
         text: 'Milch holen'
         completed: false
       )
     ])
-    newState = TodoAccess.editTodo oldState, 0, 'laktosefreie Milch holen'
+    newState = TodoAccess.changeTodoText oldState, 0, 'laktosefreie Milch holen'
     expectedState = List([
       Map(
         text: 'laktosefreie Milch holen'
@@ -49,7 +49,7 @@ describe 'todo state access', ->
     ])
     expect(newState).to.equal(expectedState)
 
-  it 'should delete an existing todo item if new text is empty', ->
+  it 'should delete an existing todo item by changing to a new empty text', ->
     oldState = List([
       Map(
         text: 'Milch holen'
@@ -60,7 +60,7 @@ describe 'todo state access', ->
         completed: false
       )
     ])
-    newState = TodoAccess.editTodo oldState, 1, ''
+    newState = TodoAccess.changeTodoText oldState, 1, ''
     expectedState = List([
       Map(
         text: 'Milch holen'

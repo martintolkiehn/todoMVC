@@ -23,7 +23,7 @@ isValidTodos = (todosState) ->
 addTodo = (todosState, text) ->
   todosState.push(createTodo text)
 
-editTodo = (todosState, pos, newText) ->
+changeTodoText = (todosState, pos, newText) ->
   if newText is ''
     return todosState.filter (todo, itemPos) -> pos isnt itemPos
   else
@@ -54,7 +54,7 @@ module.exports = {
   isValidTodo
   isValidTodos
   addTodo
-  editTodo
+  changeTodoText
   deleteTodo
   toggleTodo
   toggleAllTodos

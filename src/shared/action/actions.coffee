@@ -8,8 +8,8 @@ addTodo = (text) ->
   type: ActionTypes.ADD_TODO
   text: text
 
-editTodo = (pos, text) ->
-  type: ActionTypes.EDIT_TODO
+changeTodoText = (pos, text) ->
+  type: ActionTypes.CHANGE_TODO_TEXT
   pos: pos
   text: text
 
@@ -30,7 +30,7 @@ deleteAllCompletedTodos = ->
 module.exports = {
   isValid
   addTodo
-  editTodo
+  changeTodoText
   deleteTodo
   toggleTodo
   toggleAllTodos

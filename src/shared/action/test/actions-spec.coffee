@@ -12,9 +12,9 @@ describe 'todo actions', ->
     expect(actualAction).to.deep.equal(expectedAction)
 
   it 'should create an action for changing text of an existing todo item', ->
-    actualAction = Actions.editTodo 15, 'Milch holen'
+    actualAction = Actions.changeTodoText 15, 'Milch holen'
     expectedAction =
-      type: ActionTypes.EDIT_TODO
+      type: ActionTypes.CHANGE_TODO_TEXT
       pos: 15
       text: 'Milch holen'
     expect(actualAction).to.deep.equal(expectedAction)
