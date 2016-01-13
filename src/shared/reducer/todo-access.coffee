@@ -2,13 +2,12 @@
 
 INITIAL_STATE = List()
 
-createTodo = (id, text) ->
-  Map({id: id, text: text})
+createTodo = (text) ->
+  Map text: text, completed: false
 
 isValidTodo = (todoState) ->
   isValid = (
     Map.isMap(todoState) and
-    (typeof todoState.get('id') is 'number') and
     (typeof todoState.get('text') is 'string')
   )
   return isValid
@@ -22,20 +21,32 @@ isValidTodos = (todosState) ->
     return false
 
 addTodo = (todosState, text) ->
-  newId = 1 + (todosState.maxBy((todoState) -> todoState.get('id'))).get('id')
-  todosState.push(createTodo newId, text)
+  todosState.push(createTodo text)
 
-editTodo = (todosState, id, newText) ->
+editTodo = (todosState, pos, newText) ->
   if newText is ''
-    return todosState.filter (todo) -> id isnt todo.get 'id'
+    return todosState.filter (todo, itemPos) -> pos isnt itemPos
   else
-    return todosState.map (todo) ->
-      if id is todo.get 'id' then todo.set 'text', newText else todo
+    return todosState.map (todo, itemPos) ->
+      if pos is itemPos then todo.set 'text', newText else todo
 
-deleteTodo = (todosState, id) ->
-  pos = todosState.findIndex((todoState) -> id is todoState.get('id'))
-  return todosState if pos < 0
+deleteTodo = (todosState, pos) ->
   todosState.delete pos
+
+toggleTodo = (todosState, pos) ->
+  todosState.map (todo, itemPos) ->
+    if pos is itemPos
+      todo.update 'completed', (oldFlag) -> not oldFlag
+    else
+      todo
+
+toggleAllTodos = (todosState) ->
+  allCompleted = todosState.every (todo) -> todo.get 'completed'
+  todosState.map (todo) ->
+    todo.set 'completed', not allCompleted
+
+deleteAllCompletedTodos = (todosState) ->
+  todosState.filter (todo) -> not todo.get 'completed'
 
 module.exports = {
   INITIAL_STATE
@@ -45,4 +56,7 @@ module.exports = {
   addTodo
   editTodo
   deleteTodo
+  toggleTodo
+  toggleAllTodos
+  deleteAllCompletedTodos
 }

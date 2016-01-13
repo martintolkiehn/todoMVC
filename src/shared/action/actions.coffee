@@ -8,18 +8,18 @@ addTodo = (text) ->
   type: ActionTypes.ADD_TODO
   text: text
 
-editTodo = (id, text) ->
+editTodo = (pos, text) ->
   type: ActionTypes.EDIT_TODO
-  id: id
+  pos: pos
   text: text
 
-deleteTodo = (id) ->
+deleteTodo = (pos) ->
   type: ActionTypes.DELETE_TODO
-  id: id
+  pos: pos
 
-completeTodo = (id) ->
+toggleTodo = (pos) ->
   type: ActionTypes.TOGGLE_TODO
-  id: id
+  pos: pos
 
 toggleAllTodos = ->
   type: ActionTypes.TOGGLE_ALL_TODOS
@@ -32,7 +32,7 @@ module.exports = {
   addTodo
   editTodo
   deleteTodo
-  completeTodo
+  toggleTodo
   toggleAllTodos
   deleteAllCompletedTodos
 }

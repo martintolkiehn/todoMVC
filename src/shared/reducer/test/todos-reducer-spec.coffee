@@ -22,19 +22,19 @@ describe 'todo reducer', ->
     action = type: ActionTypes.ADD_TODO, text: 'laktosefreie Milch holen'
     oldState = List([
       Map(
-        id: 17
         text: 'Milch holen'
+        completed: true
       )
     ])
     newState = TodoReducer.reduce oldState, action
     expectedState = List([
       Map(
-        id: 17
         text: 'Milch holen'
+        completed: true
       )
       Map(
-        id: 18
         text: 'laktosefreie Milch holen'
+        completed: false
       )
     ])
     expect(newState).to.equal(expectedState)

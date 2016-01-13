@@ -3,11 +3,44 @@ Actions = require '../actions'
 ActionTypes = require '../action-types'
 
 describe 'todo actions', ->
-  it 'add todo action', ->
-    text = 'Milch holen'
-    actualAction = Actions.addTodo text
+
+  it 'should create an action for adding a new todo item', ->
+    actualAction = Actions.addTodo 'Milch holen'
     expectedAction =
       type: ActionTypes.ADD_TODO
-      text: text
+      text: 'Milch holen'
+    expect(actualAction).to.deep.equal(expectedAction)
 
+  it 'should create an action for changing text of an existing todo item', ->
+    actualAction = Actions.editTodo 15, 'Milch holen'
+    expectedAction =
+      type: ActionTypes.EDIT_TODO
+      pos: 15
+      text: 'Milch holen'
+    expect(actualAction).to.deep.equal(expectedAction)
+
+  it 'should create an action for deleting an existing todo item', ->
+    actualAction = Actions.deleteTodo 27
+    expectedAction =
+      type: ActionTypes.DELETE_TODO
+      pos: 27
+    expect(actualAction).to.deep.equal(expectedAction)
+
+  it 'should create an action for toggeling the completion flag of an existing todo item', ->
+    actualAction = Actions.toggleTodo 51
+    expectedAction =
+      type: ActionTypes.TOGGLE_TODO
+      pos: 51
+    expect(actualAction).to.deep.equal(expectedAction)
+
+  it 'should create an action for toggeling the completion flag of all existing todo items', ->
+    actualAction = Actions.toggleAllTodos()
+    expectedAction =
+      type: ActionTypes.TOGGLE_ALL_TODOS
+    expect(actualAction).to.deep.equal(expectedAction)
+
+  it 'should create an action for deleting all completed todo items', ->
+    actualAction = Actions.deleteAllCompletedTodos()
+    expectedAction =
+      type: ActionTypes.DELETE_ALL_COMPLETED_TODOS
     expect(actualAction).to.deep.equal(expectedAction)
