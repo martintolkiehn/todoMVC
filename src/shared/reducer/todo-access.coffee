@@ -2,15 +2,16 @@
 
 INITIAL_STATE = List()
 
-createTodo = (text) ->
-  Map({text: text})
-
-addTodo = (todosState, text) ->
-  todosState.push(createTodo text)
+createTodo = (id, text) ->
+  Map({id: id, text: text})
 
 isValidTodo = (todoState) ->
-  typeof todoState == 'object' and
-  typeof todoState.text  == 'string'
+  isValid = (
+    Map.isMap(todoState) and
+    (typeof todoState.get('id') is 'number') and
+    (typeof todoState.get('text') is 'string')
+  )
+  return isValid
 
 isValidTodos = (todosState) ->
   try
@@ -20,10 +21,14 @@ isValidTodos = (todosState) ->
   catch
     return false
 
+addTodo = (todosState, text) ->
+  newId = 1 + (todosState.maxBy((todoState) -> todoState.get('id'))).get('id')
+  todosState.push(createTodo newId, text)
+
 module.exports = {
   INITIAL_STATE
   createTodo
-  addTodo
   isValidTodo
   isValidTodos
+  addTodo
 }

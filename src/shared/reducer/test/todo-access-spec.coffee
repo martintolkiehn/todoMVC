@@ -2,7 +2,7 @@ chai = require 'chai'
 chaiImmutable = require 'chai-immutable'
 chai.use chaiImmutable
 expect = chai.expect
-{List} = require 'immutable'
+{List, Map} = require 'immutable'
 
 TodoAccess = require '../todo-access'
 
@@ -14,16 +14,21 @@ describe 'todo state access', ->
     expect(newState).to.equal(expectedState)
 
   it 'add todo to list', ->
-    text1 = 'Milch holen'
-    text2 = 'Butter nicht vergessen'
-    todo1 = TodoAccess.createTodo text1
-    todo2 = TodoAccess.createTodo text2
     oldState = List([
-      todo1
+      Map(
+        id: 17
+        text: 'Milch holen'
+      )
     ])
-    newState = TodoAccess.addTodo oldState, text2
+    newState = TodoAccess.addTodo oldState, 'laktosefreie Milch holen'
     expectedState = List([
-      todo1
-      todo2
+      Map(
+        id: 17
+        text: 'Milch holen'
+      )
+      Map(
+        id: 18
+        text: 'laktosefreie Milch holen'
+      )
     ])
     expect(newState).to.equal(expectedState)
