@@ -17,7 +17,6 @@ class TodoAdder extends Component
           placeholder="add your todo here!"
           onSave={@handleSave.bind this }
          />
-         <div className="footer">We only support Chrome for OS-X at the moment!</div>
       </header>
     )
 

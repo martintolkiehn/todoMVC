@@ -163,6 +163,8 @@ li.completed .todoCompletedText {
 }
 
 .footer {
+  margin: 0 auto;
+  width: 550px;
   color: #8A8080;
   font-size: 14px;
   line-height: 30px;
