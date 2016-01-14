@@ -1,9 +1,10 @@
 detectedHost = location?.hostname
 defaultHost = '127.0.0.1'
+ServerConfig = require '../../server/server-config'
 
 protocol = 'http'
 host = detectedHost ? defaultHost
-port = 3004
+port = ServerConfig.port
 url = "#{protocol}://#{host}:#{port}"
 logLevel = 2
 

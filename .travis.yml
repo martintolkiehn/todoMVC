@@ -1,3 +1,9 @@
 language: node_js
 node_js:
-  - '4.2.4'
+- 4.2.4
+deploy:
+  provider: heroku
+  api_key:
+    secure: GdbnbkCB9p3AJBrpyLQRJ09NfUDY3C9xMuiGyX4KplsoPhiNqHc1HMvxAzrI7K7vdW7yVX8+aSmyRPFbtAK6kMaRMq5saABgwpqkqrNrVSx1hTOXmgajOWjw+NdSYHRJ9Gi2GyyO8g84kueoVcVXdt+q+mW1UTGmGE2pj8Gjx5bRAu+TrVJ9pdSFDiSZZII504OpvT3swolZZ5iqgX5irB09hRv1sn7pYqSNyjKPIKgsWXt7tRdZwXzvTnL6vOZ9lLqNX0uU/Y2pkuRYq6eXSJzqE5r3zNG2YXkmnphkv2goQb4uwDBTMqabkRj2vL6iHP982iouuVcr8awg/d1Y/KTDF7LU8ZiTDc97tt0OoMhU9u8DM8vci2liflFvcpXqoionWBdjherZE9I7fcOrNIKXGy+KuAy3YrEkXbX2hhwHIRInRJToOLa7HXFceISke4Fv8Ynnt8Tw0ZY2pRvBbKMic2r6SX3SsGtkfRZlRlD2iDAWsGYLJ9QfuHoX85NFrfZTBtTPM3UeJXL8/TuuJq+Rbns8aEaEb9rxcA3GFUyGiRH3yHus/MNaxXF6d5D7HLr/StQwNfMvKE6mmvb1s6siBU8PLKSwmiSSBxF3rsGh/LqfW6NNrthLBs3RoXtu/cgf0saVnUfNMo/D22MzD02dQVurbafJAt/RVpSABdI=
+  app: sleepy-citadel-1699
+  strategy: git
