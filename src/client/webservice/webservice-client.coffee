@@ -13,13 +13,14 @@ get = (path) ->
     path: urlTodoApi + path
   )
 
-post = (path, data) ->
+post = (path, json) ->
+  jsonTxt = JSON.stringify(json)
   client(
     method: 'POST'
-    headers:
-      Host: ServiceConfig.host
     path: urlTodoApi + path
-    body: data
+    headers:
+      'Content-Type': 'application/json'
+    entity: json
   )
 
 getAllTodos = ->
@@ -28,8 +29,8 @@ getAllTodos = ->
 getTodoById = (id) ->
   get("/#{id}")
 
-saveTodo = (todo) ->
-  post("", todo)
+saveTodo = (jsonTodo) ->
+  post("", jsonTodo)
 
 module.exports = {
   getAllTodos

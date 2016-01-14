@@ -48,8 +48,27 @@ toggleAllTodos = (todosState) ->
 deleteAllCompletedTodos = (todosState) ->
   todosState.filter (todo) -> not todo.get 'completed'
 
-loadAllTodos = (todosState, todos) ->
-  List(todos)
+
+receiveAllTodos = (todosState, jsonTodos) ->
+  convertJsonTodos2State jsonTodos
+
+receiveAddedTodo = (todosState, jsonTodo) ->
+  todosState.push(convertJsonTodo2State jsonTodo)
+
+
+convertJsonTodo2State = (jsonTodo) ->
+  Map(
+    id: jsonTodo.id
+    text: jsonTodo.text
+    completed: jsonTodo.completed
+  )
+
+convertJsonTodos2State = (jsonTodos) ->
+  List(
+    for jsonTodo in jsonTodos
+      convertJsonTodo2State jsonTodo
+  )
+
 
 module.exports = {
   INITIAL_STATE
@@ -62,4 +81,6 @@ module.exports = {
   toggleTodo
   toggleAllTodos
   deleteAllCompletedTodos
+  receiveAllTodos
+  receiveAddedTodo
 }

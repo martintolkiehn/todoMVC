@@ -21,7 +21,9 @@ reduce = (state, action) ->
     when ActionTypes.DELETE_ALL_COMPLETED_TODOS
       return TodoAccess.deleteAllCompletedTodos state
     when ActionTypes.WEBSERVICE_RECEIVE_ALL_TODOS
-      return TodoAccess.loadAllTodos state, action.todos
+      return TodoAccess.receiveAllTodos state, action.jsonTodos
+    when ActionTypes.WEBSERVICE_RECEIVE_ADDED_TODO
+      return TodoAccess.receiveAddedTodo state, action.jsonTodo
     else
       return state
 

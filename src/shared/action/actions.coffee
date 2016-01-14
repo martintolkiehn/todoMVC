@@ -22,8 +22,19 @@ webserviceErrorOccured = (info) ->
 
 
 addTodo = (text) ->
-  type: ActionTypes.ADD_TODO
-  text: text
+  jsonTodo =
+    text: text
+    completed: false
+  WebserviceClient.saveTodo(jsonTodo).then((response)->
+    jsonTodos = response.entity
+    if jsonTodos? && jsonTodos.length > 0
+      registeredStore.dispatch
+        type: ActionTypes.WEBSERVICE_RECEIVE_ADDED_TODO
+        jsonTodo: jsonTodos[0]
+  ).catch((error) ->
+    registeredStore.dispatch(webserviceErrorOccured(error))
+  )
+  webserviceCallIsRunning 'save new todo item'
 
 changeTodoText = (pos, text) ->
   type: ActionTypes.CHANGE_TODO_TEXT
@@ -46,16 +57,15 @@ deleteAllCompletedTodos = ->
 
 
 loadAllTodos = ->
-  WebserviceClient.getAllTodos().then((todos)->
-    registeredStore.dispatch(webserviceReceiveAllTodos todos)
+  WebserviceClient.getAllTodos().then((response)->
+    jsonTodos = response.entity
+    registeredStore.dispatch
+      type: ActionTypes.WEBSERVICE_RECEIVE_ALL_TODOS
+      jsonTodos: jsonTodos
   ).catch((error) ->
     registeredStore.dispatch(webserviceErrorOccured(error))
   )
   webserviceCallIsRunning 'load all todo items'
-
-webserviceReceiveAllTodos = (todos) ->
-  type: ActionTypes.WEBSERVICE_RECEIVE_ALL_TODOS
-  todos: todos
 
 
 module.exports = {

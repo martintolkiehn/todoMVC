@@ -31,13 +31,6 @@ class TodoList extends Component
             checked={completedCount is todos.size}
             onChange={actions.toggleAllTodos}
           />
-          reload all todos:
-          <input
-            className="toggle-all"
-            type="checkbox"
-            checked={true}
-            onChange={actions.loadAllTodos}
-          />
           <label><span></span></label>
         </div>
       )
@@ -63,7 +56,6 @@ class TodoList extends Component
 
   render: ->
     {todos, actions} = @props
-    console.log actions
     #{filter} = @state
 
     #filteredTodos = todos.filter TODO_FILTERS[filter]

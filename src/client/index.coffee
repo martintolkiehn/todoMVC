@@ -16,5 +16,4 @@ render(
   document.getElementById('root')
 )
 
-startup = -> loadAllTodos()
-setTimeout(startup, 200)
+loadAllTodos()

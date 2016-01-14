@@ -30,9 +30,10 @@ api.get '/:id', (req, res) ->
 
 # save/update one (eventually new) todo
 api.post '/', (req, res) ->
-  todo = req.body.data
+  todo = req.body
   console.log 'webservice-todo: put:', (if logLevel > 1 then todo else '') if logLevel > 0
   newTodos = ServiceCore.saveTodo todo
+  console.log '=>', newTodos if logLevel > 1
   res.json newTodos
 
 module.exports = api
