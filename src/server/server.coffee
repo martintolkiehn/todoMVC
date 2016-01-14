@@ -12,6 +12,8 @@ webpackConfig = require './webpack.config'
 appServer = new Express()
 appServer.use Express.static(webStaticPath)
 
+appServer.get('/', (request, response) -> response.render 'index')
+
 webpackCompiler = Webpack(webpackConfig)
 appServer.use WebpackDevMiddleware(webpackCompiler,
   noInfo: true
