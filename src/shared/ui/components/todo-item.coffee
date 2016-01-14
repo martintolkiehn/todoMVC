@@ -46,6 +46,7 @@ class TodoItem extends Component
             onChange={() -> toggleTodo pos}
           />
           <label
+            className="todoCompletedText"
             onDoubleClick={@handleDoubleClick.bind this}
           >
             <span>{@props.todo.get 'text'}</span>

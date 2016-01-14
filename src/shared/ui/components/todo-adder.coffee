@@ -11,7 +11,7 @@ class TodoAdder extends Component
   render: ->
     return (
       <header>
-        <h1>TODO RPLAN NEXT</h1>
+        <h1>TODO MVC: <span className="next">RPLAN NEXT</span></h1>
         <TodoInput
           newTodo
           placeholder="add your todo here!"

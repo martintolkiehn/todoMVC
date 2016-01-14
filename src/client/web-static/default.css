@@ -1,37 +1,29 @@
 body {
-  font-family: geneva;
+  font-family: Arial, Veranda, 'sans-serif normal';
+  background-color: #D5DDE0;
   box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  font-weight: 300;
-  background: #F2F5EB;
-  font-family: 75%/125% Arial, Veranda, sans-serif normal;
-  background-color: rgb(213, 221, 224);
   display: block;
+  -webkit-font-smoothing: antialiased;
 }
 
 #root {
   margin: 0 auto;
-  min-width: 230px;
   max-width: 550px;
-  background: #fff;
+  background: #FFFFFF;
   box-shadow: -0.25em 0 2.5em 0 rgba(0, 0, 0, 0.1);
   display: block;
 }
 
 .todoApp {
+  margin-top: 50px;
+  padding-bottom: 10px;
   background: #F8F8F8;
   box-sizing: border-box;
   display: block;
-  margin-top: 50px;
-  padding-bottom: 10px;
 }
 
 .todoApp header {
-  font-family: Arial, Veranda, 'sans-serif normal';
   font-size: 22px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
   height: 160px;
 }
 
@@ -44,93 +36,128 @@ header h1 {
   width: 100%;
   padding: 0;
   margin: 20px 10px 0px 10px;
-  text-align: center;
   color: #8A8080;
-  box-sizing: border-box;
-  display: block;
-
-  font-family: Arial, Veranda, 'sans-serif normal';
-  font-size: 42px;
+  font-size: 36px;
   line-height: 80px;
-  font-style: normal;
-  font-variant: normal;
   font-weight: normal;
+  text-align: center;
+  display: block;
+  box-sizing: border-box;
 }
 
-header input.newTodo {
-  width: 90%;
-  margin-left: 5%;
+h1 .next {
+  color: #186FCA;
+}
+
+section ul {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: block;
+}
+
+section li {
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: block;
+}
+
+div.todoItem input, div.todoItem label, div.todoItem button {
+  float: left;
+}
+
+.todoList {
+  padding-bottom: 20px;
+}
+
+div.todoItem {
+  width: 100%;
+  height: 60px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+div.todoItem button {
+  width: 25px;
+  height: 25px;
+  margin-top: 18px;
+  margin-left: 15px;
+  background-color: #186FCA;
+  border-radius: 6px;
+  border: 0;
+  box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+input.newTodo {
+  width: 85%;
+  margin-left: 10%;
   margin-bottom: 50px;
   font-size: 24px;
-  outline: none;
-  padding: 16px 16px 16px 60px;
+  padding: 16px;
   border: none;
+  outline: none;
+  background-color: #F8F8F8;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+  display: block;
+}
+
+input[type="text"]:focus {
   background-color: #FFFFFF;
+  box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2);
+}
+
+.todoCompletedText {
+  width: 80%;
+  margin-left: 10%;
+  font-size: 24px;
+  outline: none;
+  padding: 16px;
+  border: none;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+  display: block;
+}
+
+.editing input.edit {
+  margin-top: 40px;
+}
+
+.pos0 input.edit {
+  margin-top: 20px;
+}
+
+input.edit {
+  width: 80%;
+  margin-top: 20px;
+  margin-left: 10%;
+  font-size: 24px;
+  padding: 16px;
+  border: none;
+  outline: none;
+  background-color: #F8F8F8;
   box-sizing: border-box;
   box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2);
   display: block;
 }
 
-input.edit {
-  width: 90%;
-  margin-left: 5%;
-  margin-bottom: 50px;
-  font-size: 24px;
-  outline: none;
-  padding: 16px 16px 16px 16px;
-  border: none;
-  box-sizing: border-box;
-  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.2);
-  background-color: #FFFFFF;
-  display: block;
+input[type="checkbox"] {
+  position: relative;
+  width: 50px;
+  transform: scale(2);
+ -webkit-transform: scale(2);
+  left: 30px;
+  top: 40px;
 }
 
-input.todoAdder {
-  background: #FFFF00;
+input.toggle-all {
+  position: relative;
+  top: -60px;
 }
 
-input.todoCompleted{
-  background: #FF0000;
-}
-
-input.todoDelete{
-  background: #00FF00;
-}
-
-input[type="checkbox" i] {
-  background: #00FFFF;
-  height: 20px;
-  margin-top: -20px;
-}
-
-section ul {
-  box-sizing: border-box;
-  display: block;
-  margin: 0;
-  padding: 0;
-}
-
-section li {
-  font-size: 24px;
-  box-sizing: border-box;
-  display: block;
-  margin: 0;
-  padding: 0;
-}
-
-
-input1[type="checkbox"] {
-    display:none;
-}
-input1[type="checkbox"] + label span {
-    display:inline-block;
-    width:19px;
-    height:19px;
-    margin:-1px 4px 0 0;
-    vertical-align:middle;
-    background:url(checkbox.png) left top no-repeat;
-    cursor:pointer;
-}
-input1[type="checkbox"]:checked + label span {
-    background:url(checkbox.png) -19px top no-repeat;
+li.completed .todoCompletedText {
+  color: #AAAAAA;
+  text-decoration: line-through;
 }
