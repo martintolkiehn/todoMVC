@@ -4,8 +4,8 @@ ServerConfig = require '../../server/server-config'
 
 protocol = 'http'
 host = detectedHost ? defaultHost
-port = ServerConfig.port
-url = "#{protocol}://#{host}:#{port}"
+port = if process.env.PORT? then null else ServerConfig.port
+url = "#{protocol}://#{host}#{if port? then ':' + port else ''}"
 logLevel = 2
 
 pathTodoApi = '/todo'
