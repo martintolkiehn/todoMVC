@@ -161,3 +161,10 @@ li.completed .todoCompletedText {
   color: #AAAAAA;
   text-decoration: line-through;
 }
+
+.footer {
+  color: #8A8080;
+  font-size: 14px;
+  line-height: 30px;
+  text-align: right;;
+}
