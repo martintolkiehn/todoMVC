@@ -23,3 +23,9 @@ $ git commit -m "Demo"
 $ git push heroku master
 
 $ heroku open cool
+
+
+
+
+heroku create --buildpack https://github.com/aergonaut/heroku-buildpack-coffeescript.git
+heroku config:set BUILDPACK_URL=https://github.com/aergonaut/heroku-buildpack-coffeescript.git
