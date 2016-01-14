@@ -24,3 +24,7 @@ appServer.listen port, (error) ->
     console.error error
   else
     console.info "==> 🌎  Listening on port #{port}. Open up http://127.0.0.1:#{port} in your browser."
+
+
+webserviceServer = require './webservice/webservice-server'
+webserviceServer.startWebserviceServer()
