@@ -3,8 +3,6 @@ React = require 'react'
 { bindActionCreators } = require 'redux'
 { connect } = require 'react-redux'
 ImmutablePropTypes = require 'react-immutable-proptypes'
-#Header = require '../components/Header'
-#MainSection = require '../components/MainSection'
 
 Actions = require '../../action/actions'
 TodoAdder = require '../components/todo-adder'

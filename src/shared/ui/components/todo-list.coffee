@@ -24,12 +24,15 @@ class TodoList extends Component
 
     if todos.size > 0
       return (
-        <input
-          className="toggle-all"
-          type="checkbox"
-          checked={completedCount is todos.size}
-          onChange={actions.toggleAllTodos}
-        />
+        <div>
+          <input
+            className="toggle-all"
+            type="checkbox"
+            checked={completedCount is todos.size}
+            onChange={actions.toggleAllTodos}
+          />
+          <label><span></span></label>
+        </div>
       )
 
   # handleShow: (filter) ->

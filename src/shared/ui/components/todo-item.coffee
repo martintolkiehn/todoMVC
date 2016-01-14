@@ -48,7 +48,7 @@ class TodoItem extends Component
           <label
             onDoubleClick={@handleDoubleClick.bind this}
           >
-            {@props.todo.get 'text'}
+            <span>{@props.todo.get 'text'}</span>
           </label>
           <button
             className="todoDelete"
