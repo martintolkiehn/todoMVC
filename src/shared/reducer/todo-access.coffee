@@ -48,6 +48,9 @@ toggleAllTodos = (todosState) ->
 deleteAllCompletedTodos = (todosState) ->
   todosState.filter (todo) -> not todo.get 'completed'
 
+loadAllTodos = (todosState, todos) ->
+  List(todos)
+
 module.exports = {
   INITIAL_STATE
   createTodo

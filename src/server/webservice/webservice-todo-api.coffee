@@ -29,7 +29,7 @@ api.get '/:id', (req, res) ->
     res.json todo
 
 # save/update one (eventually new) todo
-api.put '/', (req, res) ->
+api.post '/', (req, res) ->
   todo = req.body.data
   console.log 'webservice-todo: put:', (if logLevel > 1 then todo else '') if logLevel > 0
   newTodos = ServiceCore.saveTodo todo

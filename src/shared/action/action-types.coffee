@@ -5,4 +5,8 @@ module.exports = require('../util/common-util').defineConstants [
   'TOGGLE_TODO'
   'TOGGLE_ALL_TODOS'
   'DELETE_ALL_COMPLETED_TODOS'
+
+  'WEBSERVICE_CALL_IS_RUNNING'
+  'WEBSERVICE_ERROR_OCCURED'
+  'WEBSERVICE_RECEIVE_ALL_TODOS'
 ]

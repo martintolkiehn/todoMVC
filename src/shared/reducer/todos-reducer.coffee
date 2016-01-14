@@ -20,6 +20,8 @@ reduce = (state, action) ->
       return TodoAccess.toggleAllTodos state
     when ActionTypes.DELETE_ALL_COMPLETED_TODOS
       return TodoAccess.deleteAllCompletedTodos state
+    when ActionTypes.WEBSERVICE_RECEIVE_ALL_TODOS
+      return TodoAccess.loadAllTodos state, action.todos
     else
       return state
 

@@ -1,8 +1,25 @@
 ActionTypes = require './action-types'
+WebserviceClient = require '../../client/webservice/webservice-client'
+
+registeredStore = {}
+
+registerStore = (store) ->
+  registeredStore = store if store?
+
 
 isValid = (action) ->
   typeof action is 'object' and
   typeof action.type is 'string'
+
+
+webserviceCallIsRunning = (info) ->
+  type: ActionTypes.WEBSERVICE_CALL_IS_RUNNING
+  info: info
+
+webserviceErrorOccured = (info) ->
+  type: ActionTypes.WEBSERVICE_ERROR_OCCURED
+  info: info
+
 
 addTodo = (text) ->
   type: ActionTypes.ADD_TODO
@@ -27,7 +44,22 @@ toggleAllTodos = ->
 deleteAllCompletedTodos = ->
   type: ActionTypes.DELETE_ALL_COMPLETED_TODOS
 
+
+loadAllTodos = ->
+  WebserviceClient.getAllTodos().then((todos)->
+    registeredStore.dispatch(webserviceReceiveAllTodos todos)
+  ).catch((error) ->
+    registeredStore.dispatch(webserviceErrorOccured(error))
+  )
+  webserviceCallIsRunning 'load all todo items'
+
+webserviceReceiveAllTodos = (todos) ->
+  type: ActionTypes.WEBSERVICE_RECEIVE_ALL_TODOS
+  todos: todos
+
+
 module.exports = {
+  registerStore
   isValid
   addTodo
   changeTodoText
@@ -35,4 +67,5 @@ module.exports = {
   toggleTodo
   toggleAllTodos
   deleteAllCompletedTodos
+  loadAllTodos
 }

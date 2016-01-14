@@ -1,7 +1,8 @@
 { createStore } = require 'redux'
-{reduce} = require '../reducer/root-reducer'
 {Map} = require 'immutable'
 
+{reduce} = require '../reducer/root-reducer'
+{registerStore} = require '../action/actions'
 configureStore = (initialState) ->
 
   validState = reduce()
@@ -12,6 +13,8 @@ configureStore = (initialState) ->
     module.hot.accept '../reducer/root-reducer', () ->
       nextReducer = (require '../reducer/root-reducer').reduce
       store.replaceReducer nextReducer
+
+  registerStore store
 
   return store
 

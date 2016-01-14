@@ -1,6 +1,8 @@
 React = require 'react'
 { render } = require 'react-dom'
 { Provider } = require 'react-redux'
+
+{loadAllTodos} = require '../shared/action/actions'
 configureStore = require '../shared/store/store'
 
 App = require '../shared/ui/containers/app'
@@ -13,3 +15,6 @@ render(
   </Provider>,
   document.getElementById('root')
 )
+
+startup = -> loadAllTodos()
+setTimeout(startup, 200)
