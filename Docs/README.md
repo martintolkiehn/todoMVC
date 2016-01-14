@@ -12,3 +12,14 @@ heroku ps:scale web=0
 heroku ps:scale web=1
 
 heroku local web
+
+
+
+npm install
+$ heroku local
+
+$ git add .
+$ git commit -m "Demo"
+$ git push heroku master
+
+$ heroku open cool
