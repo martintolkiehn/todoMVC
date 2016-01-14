@@ -35,9 +35,9 @@ body {
 header h1 {
   width: 100%;
   padding: 0;
-  margin: 20px 10px 0px 10px;
+  margin: 20px 10px 0px 0;
   color: #8A8080;
-  font-size: 36px;
+  font-size: 32px;
   line-height: 80px;
   font-weight: normal;
   text-align: center;
@@ -91,7 +91,7 @@ div.todoItem button {
 }
 
 input.newTodo {
-  width: 85%;
+  width: 80%;
   margin-left: 10%;
   margin-bottom: 50px;
   font-size: 24px;
