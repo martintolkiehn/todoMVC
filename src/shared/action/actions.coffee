@@ -1,7 +1,8 @@
 ActionTypes = require './action-types'
 WebserviceClient = require '../../client/webservice/webservice-client'
 
-registeredStore = {}
+registeredStore =
+  dispatch: ->
 
 registerStore = (store) ->
   registeredStore = store if store?

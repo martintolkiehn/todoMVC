@@ -7,8 +7,8 @@ describe 'todo actions', ->
   it 'should create an action for adding a new todo item', ->
     actualAction = Actions.addTodo 'Milch holen'
     expectedAction =
-      type: ActionTypes.ADD_TODO
-      text: 'Milch holen'
+      type: ActionTypes.WEBSERVICE_CALL_IS_RUNNING
+      info: 'save new todo item'
     expect(actualAction).to.deep.equal(expectedAction)
 
   it 'should create an action for changing text of an existing todo item', ->
