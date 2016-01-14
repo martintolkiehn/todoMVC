@@ -21,8 +21,10 @@ appServer.use WebpackDevMiddleware(webpackCompiler,
 )
 appServer.use WebpackHotMiddleware(webpackCompiler)
 
-appServer.listen(process.env.PORT or port, (error) ->
+rightPort = process.env.PORT ? port
+
+appServer.listen rightPort, (error) ->
   if error
     console.error error
   else
-    console.info "==> 🌎  Listening on port #{port}. Open up http://127.0.0.1:#{port} in your browser.")
+    console.info "==> 🌎  Listening on port #{rightPort}. Open up http://127.0.0.1:#{rightPort} in your browser."
