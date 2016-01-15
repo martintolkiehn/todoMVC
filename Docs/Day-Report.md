@@ -115,8 +115,16 @@ Datum 08.01.2016
 
 # Day 4
 Datum 11.01.2016
-## martin knows it
-* self motivation
+## Travis Integration
+* Einrichtung von Continuous Integration mit Travis unter (https://travis-ci.org)
+  (https://travis-ci.org/martintolkiehn/todoMVC)
+
+## Teilnahme an Vortrag über Self Motivation von Laura
+
+## Weiterentwicklung der todoMVC
+* Refactoring: Trennung von Tests und Implementierung für app und header
+* Test und Implementierung für task component
+
 
 
 # Day 5
