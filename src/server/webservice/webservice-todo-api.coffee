@@ -1,13 +1,10 @@
 { Router } = require 'express'
 
 { logLevel } = require './../../shared/webservice/webservice-config'
-
 ServiceCore = require './webservice-core'
 
-api = Router()
-
 STATUS_NOT_FOUND = 404
-
+api = Router()
 
 # get all todos
 api.get '/', (req, res) ->
