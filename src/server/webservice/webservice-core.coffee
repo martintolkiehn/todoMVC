@@ -1,6 +1,5 @@
 Db = require '../database/mocked-db'
 
-
 getAllTodos = ->
   Db.getAllTodos()
 
@@ -30,7 +29,6 @@ changeTodos = (todoChanges) ->
     removed: allRemoved
     changed: allChanged
   }
-
 
 module.exports = {
   getAllTodos
