@@ -1,9 +1,10 @@
 Couchbase = require 'couchbase'
 deepcopy = require 'deepcopy'
 
-connectionString = 'couchbase://127.0.0.1'
-bucketName = 'default'
-document = 'todo'
+#connectionString = 'couchbase://127.0.0.1'
+connectionString = 'couchbase://46.101.223.167:8091'
+bucketName = 'todoMVC'
+document = 'todos'
 
 cluster = new Couchbase.Cluster connectionString
 
