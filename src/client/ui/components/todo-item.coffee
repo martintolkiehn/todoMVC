@@ -4,6 +4,7 @@ Classnames = require 'classnames'
 ImmutablePropTypes = require 'react-immutable-proptypes'
 
 TodoInput = require './todo-input'
+TodoCheckBox = require './todo-checkbox'
 
 class TodoItem extends Component
 
@@ -23,42 +24,24 @@ class TodoItem extends Component
       changeTodoText pos, todo, text
     @setState editing: false
 
+  handleClick: (pos) ->
+    {pos, toggleTodo, todo} = @props
+    toggleTodo pos, todo
+
   render: ->
     {removeTodo, toggleTodo, pos, todo} = @props
 
-    element = null
-    if @state.editing
-      element = (
+    if @state.editing then return (
+      <li className="editingInput">
         <TodoInput
           className="todoAdder"
           text={@props.todo.get 'text'}
           editing={@state.editing}
           onSave={(text) => @handleSave text}
         />
-      )
-    else
-      element = (
-        <div className="todoItem">
-          <input
-            className="todoCompleted"
-            type="checkbox"
-            checked={@props.todo.get 'completed'}
-            onChange={() -> toggleTodo pos, todo}
-          />
-          <label
-            className="todoCompletedText"
-            onDoubleClick={@handleDoubleClick.bind this}
-          >
-            <span>{@props.todo.get 'text'}</span>
-          </label>
-          <button
-            className="todoRemove"
-            onClick={() -> removeTodo pos, todo}
-          />
-        </div>
-      )
-
-    return (
+      </li>
+    )
+    else return (
       <li
         className={
           Classnames(
@@ -67,10 +50,23 @@ class TodoItem extends Component
           ) + ' pos' + pos
         }
       >
-        {element}
+        <TodoCheckBox
+          pos={pos}
+          checked={@props.todo.get 'completed'}
+          onClick={() => @handleClick pos, todo}
+        />
+        <label
+          className="inputText"
+          onDoubleClick={@handleDoubleClick.bind this}
+        >
+          <span>{@props.todo.get 'text'}</span>
+        </label>
+        <button
+          className="todoRemove"
+          onClick={() -> removeTodo pos, todo}
+        />
       </li>
-    )
-
+      )
   @propTypes:
     changeTodoText: PropTypes.func.isRequired
     removeTodo: PropTypes.func.isRequired

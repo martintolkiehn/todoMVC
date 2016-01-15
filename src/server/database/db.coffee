@@ -18,7 +18,6 @@ bucket = cluster.openBucket bucketName, (err) ->
       value = res.value
       if value?
         todos = value.todos
-        console.log todos
 
 getNextId = ->
   maxId = 0
