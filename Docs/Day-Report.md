@@ -24,15 +24,15 @@ Datum 06.01.2016
 ## Einrichtung Test-Framework im Projekt TodoMVC
 
 *  Erklärung des Modul-Konzepts von node.js und des npm
-*  Installations-Arten von benötigten Bibliotheken 
-   - npm install 
-   - lokal/global 
+*  Installations-Arten von benötigten Bibliotheken
+   - npm install
+   - lokal/global
    - Speicherung Dependencies in package.json
    - automatisches Laden aller Module durch npm install aufgrund der definierten Abhängigkeiten in package.json
-*  Installation der Test-Bibliotheken und coffee-script 
-   (Wahl von Coffee-Script als Sprache für die Test-Spezifikation aufgrund der Einfachheit und Klarheit)   
+*  Installation der Test-Bibliotheken und coffee-script
+   (Wahl von Coffee-Script als Sprache für die Test-Spezifikation aufgrund der Einfachheit und Klarheit)
 *  Aufsetzen von simplen Test
-   Erklärung des grundsätzlichen Aufbaus des Test-Frameworks 
+   Erklärung des grundsätzlichen Aufbaus des Test-Frameworks
    Erklärung von Coffee-Script-Syntax in dem Zusammenhang
 
 ### Test-Framework
@@ -89,7 +89,7 @@ Datum 07.01.2016
 * react (framework für die ui)
 * coffee-react (react with coffee-script syntax)
 * react-addons-test-utils {addons zum testen von react}
- 
+
 ## Diskussion mit Scrum-Master
 *  Reflektion des Tages
 *  Besprechung des groben Ziels für nächsten Tag
@@ -110,9 +110,38 @@ Datum 08.01.2016
 * Einteilung der Teams, die die Stories kurz diskutieren, ausarbeiten und schätzen
 * nach 1h Bearbeitungszeit wurden die Ergebnisse in großer Runde diskutiert
 
-...(to be continued)
+
+
 
 # Day 4
 Datum 11.01.2016
+## martin knows it
+* self motivation
+
+
+# Day 5
+Datum 12.01.2016
+* after discussions with joel and jannis we restarted the project
+* new branch
+* setting up redux, react, mocha, chai, protracto, webpack, express
+
+# Day 6
+Datum 13.01.2016
+* create project with component
+* backend breakthrough
+* coffee-script and jsx integration
+* travis ci
+
+# Day 7
+Datum 14.01.2016
+* frontend breakthrough
+* heroku and integration in travis ci
+* auto deploy on successful commit and push
+* webservices
+* couchbase init
+
+# Day 8
+Datum 15.01.2016
+
 
 ...(to be continued)
