@@ -1,4 +1,4 @@
-module.exports = require('../util/common-util').defineConstants [
+module.exports = require('../../shared/util/common-util').defineConstants [
   'WEBSERVICE_CALL_IS_RUNNING'
   'WEBSERVICE_ERROR_OCCURED'
 
