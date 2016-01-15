@@ -49,7 +49,7 @@ describe 'todo state access', ->
     ])
     expect(newState).to.equal(expectedState)
 
-  it 'should delete an existing todo item by changing to a new empty text', ->
+  it 'should remove an existing todo item by changing to a new empty text', ->
     oldState = List([
       Map(
         text: 'Milch holen'
@@ -69,7 +69,7 @@ describe 'todo state access', ->
     ])
     expect(newState).to.equal(expectedState)
 
-  it 'should delete a todo by its id on delete action', ->
+  it 'should remove a todo by its id on remove action', ->
     oldState = List([
       Map(
         text: 'Milch holen'
@@ -80,7 +80,7 @@ describe 'todo state access', ->
         completed: false
       )
     ])
-    newState = TodoAccess.deleteTodo oldState, 1
+    newState = TodoAccess.removeTodo oldState, 1
     expectedState = List([
       Map(
         text: 'Milch holen'
@@ -185,7 +185,7 @@ describe 'todo state access', ->
     ])
     expect(newState).to.equal(expectedState)
 
-  it 'should delete all completed todo items', ->
+  it 'should remove all completed todo items', ->
     oldState = List([
       Map(
         text: 'Milch holen'
@@ -200,7 +200,7 @@ describe 'todo state access', ->
         completed: true
       )
     ])
-    newState = TodoAccess.deleteAllCompletedTodos oldState
+    newState = TodoAccess.removeAllCompletedTodos oldState
     expectedState = List([
       Map(
         text: 'laktosefreie Milch holen'

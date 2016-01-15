@@ -10,12 +10,13 @@ class TodoList extends Component
   constructor: (props, context) ->
     super props, context
 
-  handleDeleteCompleted: () ->
+  handleRemoveCompleted: () ->
     atLeastOneCompleted = @props.todos.some todo -> todo.get 'completed'
-    @props.actions.deleteAllCompletedTodos() if atLeastOneCompleted
+    @props.actions.removeAllCompletedTodos() if atLeastOneCompleted
 
   renderToggleAll: () ->
     {todos, actions} = @props
+    console.log '--------------------', todos.toJS()
 
     completedCount = todos.reduce(
      (count, todo) ->  count + (if todo.get('completed') then 1 else 0),
@@ -29,7 +30,7 @@ class TodoList extends Component
             className="toggle-all"
             type="checkbox"
             checked={completedCount is todos.size}
-            onChange={actions.toggleAllTodos}
+            onChange={=> actions.toggleAllTodos todos}
           />
           <label><span></span></label>
         </div>
@@ -49,7 +50,7 @@ class TodoList extends Component
   #         completedCount={completedCount}
   #         activeCount={activeCount}
   #         filter={filter}
-  #         onClearCompleted={@handleDeleteCompleted.bind this}
+  #         onClearCompleted={@handleRemoveCompleted.bind this}
   #         onShow={@handleShow.bind this}
   #       />
   #     )
@@ -70,7 +71,7 @@ class TodoList extends Component
                 key={pos}
                 pos={pos}
                 todo={todo}
-                deleteTodo={actions.deleteTodo}
+                removeTodo={actions.removeTodo}
                 toggleTodo={actions.toggleTodo}
                 changeTodoText={actions.changeTodoText}
               />

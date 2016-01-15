@@ -46,6 +46,15 @@ getTodoById = (id) ->
     return [deepcopy todo] if todo.id is numId
   []
 
+removeTodoById = (id) ->
+  return null unless id?
+  idx = getTodoIndexById id - 0
+  if idx >= 0
+    todo = todos[idx]
+    todos.splice idx, 1
+    return [todo]
+  []
+
 saveTodo = (todo) ->
   ownTodo =
     id: todo?.id ? null
@@ -57,7 +66,7 @@ saveTodo = (todo) ->
     ownTodo.id = getNextId()
     todos.push ownTodo
   else
-    todos = todos.splice idx, 1, ownTodo
+    todos.splice idx, 1, ownTodo
 
   [deepcopy ownTodo]
 
@@ -65,5 +74,6 @@ saveTodo = (todo) ->
 module.exports = {
   getAllTodos
   getTodoById
+  removeTodoById
   saveTodo
 }

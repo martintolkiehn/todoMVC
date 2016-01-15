@@ -11,7 +11,7 @@ class TodoAdder extends Component
   render: ->
     return (
       <header>
-        <h1>TODO <span className="next">MVC</span></h1>
+        <h1 onClick={@props.loadAllTodos}>TODO <span className="next">MVC</span></h1>
         <TodoInput
           newTodo
           placeholder="add your todo here!"
@@ -22,5 +22,6 @@ class TodoAdder extends Component
 
   @propTypes:
     addTodo: PropTypes.func.isRequired
+    loadAllTodos: PropTypes.func.isRequired
 
 module.exports = TodoAdder

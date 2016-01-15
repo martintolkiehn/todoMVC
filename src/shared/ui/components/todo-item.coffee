@@ -15,16 +15,16 @@ class TodoItem extends Component
     @setState editing: true
 
   handleSave: (text) ->
-    {deleteTodo, changeTodoText, pos} = @props
+    {removeTodo, changeTodoText, pos, todo} = @props
 
     if text.length is 0
-      deleteTodo pos
+      removeTodo pos, todo
     else
-      changeTodoText pos, text
+      changeTodoText pos, todo, text
     @setState editing: false
 
   render: ->
-    {deleteTodo, toggleTodo, pos} = @props
+    {removeTodo, toggleTodo, pos, todo} = @props
 
     element = null
     if @state.editing
@@ -43,7 +43,7 @@ class TodoItem extends Component
             className="todoCompleted"
             type="checkbox"
             checked={@props.todo.get 'completed'}
-            onChange={() -> toggleTodo pos}
+            onChange={() -> toggleTodo pos, todo}
           />
           <label
             className="todoCompletedText"
@@ -52,8 +52,8 @@ class TodoItem extends Component
             <span>{@props.todo.get 'text'}</span>
           </label>
           <button
-            className="todoDelete"
-            onClick={() -> deleteTodo pos}
+            className="todoRemove"
+            onClick={() -> removeTodo pos, todo}
           />
         </div>
       )
@@ -73,7 +73,7 @@ class TodoItem extends Component
 
   @propTypes:
     changeTodoText: PropTypes.func.isRequired
-    deleteTodo: PropTypes.func.isRequired
+    removeTodo: PropTypes.func.isRequired
     toggleTodo: PropTypes.func.isRequired
     todo: ImmutablePropTypes.map.isRequired
     pos: PropTypes.number.isRequired

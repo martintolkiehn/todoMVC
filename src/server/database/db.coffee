@@ -41,14 +41,17 @@ getTodoById = (id) ->
   []
 
 saveTodo = (todo) ->
+  console.log 'saveTodo:', todo
   ownTodo = deepcopy todo
   idx = getTodoIndexById todo.id
+  console.log 'found idx', idx, todos[idx]
 
-  if idx < 0
+  if idx <= 0
     ownTodo.id = getNextId()
     todos.push ownTodo
   else
-    todos = todos.splice idx, 1, ownTodo
+    todos.splice idx, 1, ownTodo
+  console.log 'saveTodo:', todo
 
   [deepcopy ownTodo]
 

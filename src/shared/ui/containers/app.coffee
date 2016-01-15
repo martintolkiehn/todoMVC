@@ -13,7 +13,7 @@ class App extends Component
     {todos, actions} = @props
     return (
       <div className="todoApp">
-        <TodoAdder addTodo={actions.addTodo} />
+        <TodoAdder addTodo={actions.addTodo} loadAllTodos={actions.loadAllTodos}/>
         <TodoList todos={todos} actions={actions} />
       </div>
     )

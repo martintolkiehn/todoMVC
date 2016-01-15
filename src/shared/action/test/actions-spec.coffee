@@ -20,9 +20,9 @@ describe 'todo actions', ->
     expect(actualAction).to.deep.equal(expectedAction)
 
   it 'should create an action for deleting an existing todo item', ->
-    actualAction = Actions.deleteTodo 27
+    actualAction = Actions.removeTodo 27
     expectedAction =
-      type: ActionTypes.DELETE_TODO
+      type: ActionTypes.REMOVE_TODO
       pos: 27
     expect(actualAction).to.deep.equal(expectedAction)
 
@@ -40,7 +40,7 @@ describe 'todo actions', ->
     expect(actualAction).to.deep.equal(expectedAction)
 
   it 'should create an action for deleting all completed todo items', ->
-    actualAction = Actions.deleteAllCompletedTodos()
+    actualAction = Actions.removeAllCompletedTodos()
     expectedAction =
-      type: ActionTypes.DELETE_ALL_COMPLETED_TODOS
+      type: ActionTypes.REMOVE_ALL_COMPLETED_TODOS
     expect(actualAction).to.deep.equal(expectedAction)

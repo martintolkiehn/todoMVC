@@ -56,7 +56,7 @@ describe 'todo reducer', ->
     ])
     expect(newState).to.equal(expectedState)
 
-  it 'should delete an existing todo item by changing to a new empty text', ->
+  it 'should remove an existing todo item by changing to a new empty text', ->
     action = type: ActionTypes.CHANGE_TODO_TEXT, pos: 1, text: ''
     oldState = List([
       Map(
@@ -77,8 +77,8 @@ describe 'todo reducer', ->
     ])
     expect(newState).to.equal(expectedState)
 
-  it 'should delete a todo by its position on delete action', ->
-    action = type: ActionTypes.DELETE_TODO, pos: 1
+  it 'should remove a todo by its position on remove action', ->
+    action = type: ActionTypes.REMOVE_TODO, pos: 1
     oldState = List([
       Map(
         text: 'Milch holen'
@@ -198,8 +198,8 @@ describe 'todo reducer', ->
     ])
     expect(newState).to.equal(expectedState)
 
-  it 'should delete all completed todo items', ->
-    action = type: ActionTypes.DELETE_ALL_COMPLETED_TODOS
+  it 'should remove all completed todo items', ->
+    action = type: ActionTypes.REMOVE_ALL_COMPLETED_TODOS
     oldState = List([
       Map(
         text: 'Milch holen'
