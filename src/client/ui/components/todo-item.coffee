@@ -4,6 +4,7 @@ Classnames = require 'classnames'
 ImmutablePropTypes = require 'react-immutable-proptypes'
 
 TodoInput = require './todo-input'
+TodoCheckBox = require './todo-checkbox'
 
 class TodoItem extends Component
 
@@ -23,10 +24,15 @@ class TodoItem extends Component
       changeTodoText pos, todo, text
     @setState editing: false
 
+  handleClick: (pos) ->
+    {pos, toggleTodo} = @props
+    toggleTodo pos
+
   render: ->
     {removeTodo, toggleTodo, pos, todo} = @props
 
     element = null
+
     if @state.editing
       element = (
         <TodoInput
@@ -39,11 +45,10 @@ class TodoItem extends Component
     else
       element = (
         <div className="todoItem">
-          <input
-            className="todoCompleted"
-            type="checkbox"
+          <TodoCheckBox
+            pos={pos}
             checked={@props.todo.get 'completed'}
-            onChange={() -> toggleTodo pos, todo}
+            onClick={(pos) => @handleClick pos}
           />
           <label
             className="todoCompletedText"

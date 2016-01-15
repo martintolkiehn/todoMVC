@@ -85,7 +85,6 @@ div.todoItem button {
   margin-top: 18px;
   margin-left: 15px;
   background-color: #186FCA;
-  border-radius: 6px;
   border: 0;
   box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.2);
 }
@@ -169,4 +168,20 @@ li.completed .todoCompletedText {
   font-size: 14px;
   line-height: 30px;
   text-align: right;
+}
+
+.uncheckedBox, .checkedBox {
+  float: left;
+  position: relative;
+  width: 25px;
+  height: 25px;
+  margin: 20px 10px 10px 10px;
+}
+
+.uncheckedBox {
+  background: #DDDDDD;
+}
+
+.checkedBox {
+  background: #666666;
 }
