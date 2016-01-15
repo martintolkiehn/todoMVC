@@ -2,10 +2,10 @@ React = require 'react'
 { render } = require 'react-dom'
 { Provider } = require 'react-redux'
 
-{loadAllTodos} = require '../shared/action/actions'
-configureStore = require '../shared/store/store'
+{loadAllTodos} = require './action/actions'
+configureStore = require './store/store'
 
-App = require '../shared/ui/containers/app'
+App = require './ui/containers/app'
 
 store = configureStore()
 
