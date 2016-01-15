@@ -1,12 +1,11 @@
 rest = require 'rest'
 mime = require 'rest/interceptor/mime'
 
-client = rest.wrap mime
-
 ServiceConfig = require './../../shared/webservice/webservice-config'
 
-urlTodoApi = ServiceConfig.url + ServiceConfig.pathTodoApi
+client = rest.wrap mime
 
+urlTodoApi = ServiceConfig.url + ServiceConfig.pathTodoApi
 
 get = (path) ->
   client(
@@ -21,7 +20,6 @@ remove = (path) ->
   )
 
 post = (path, json) ->
-  jsonTxt = JSON.stringify(json)
   client(
     method: 'POST'
     path: urlTodoApi + path
@@ -29,7 +27,6 @@ post = (path, json) ->
       'Content-Type': 'application/json'
     entity: json
   )
-
 
 getAllTodos = ->
   get("/")
@@ -45,7 +42,6 @@ saveTodo = (jsonTodo) ->
 
 changeTodos = (jsonTodoChanges) ->
   post("/*", jsonTodoChanges)
-
 
 module.exports = {
   getAllTodos
