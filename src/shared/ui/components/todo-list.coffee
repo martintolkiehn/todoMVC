@@ -16,7 +16,6 @@ class TodoList extends Component
 
   renderToggleAll: () ->
     {todos, actions} = @props
-    console.log '--------------------', todos.toJS()
 
     completedCount = todos.reduce(
      (count, todo) ->  count + (if todo.get('completed') then 1 else 0),
