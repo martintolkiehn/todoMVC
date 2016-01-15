@@ -14,7 +14,6 @@ saveTodo = (todo) ->
   Db.saveTodo todo
 
 changeTodos = (todoChanges) ->
-  console.log 'changeTodos', todoChanges
   allRemoved = []
   if (todoChanges?.removes?.length ? 0) > 0
     for todoRemove in todoChanges.removes
@@ -26,7 +25,6 @@ changeTodos = (todoChanges) ->
     for todoChange in todoChanges.changes
       changed = Db.saveTodo todoChange
       allChanged.push changed[0] if (changed?.length ? 0) > 0
-      console.log '#', changed
 
   return {
     removed: allRemoved

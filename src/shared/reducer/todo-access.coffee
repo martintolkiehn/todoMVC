@@ -45,35 +45,6 @@ mapTodosStateById = (todosState) ->
     todoById[id] = todosState if id?
   todoById
 
-
-addTodo = (todosState, text) ->
-  todosState.push(createTodo text)
-
-changeTodoText = (todosState, pos, newText) ->
-  if newText is ''
-    return todosState.filter (todo, itemPos) -> pos isnt itemPos
-  else
-    return todosState.map (todo, itemPos) ->
-      if pos is itemPos then todo.set 'text', newText else todo
-
-removeTodo = (todosState, pos, id) ->
-  todosState.remove pos, id
-
-toggleTodo = (todosState, pos) ->
-  todosState.map (todo, itemPos) ->
-    if pos is itemPos
-      todo.update 'completed', (oldFlag) -> not oldFlag
-    else
-      todo
-
-toggleAllTodos = (todosState) ->
-  allCompleted = todosState.every (todo) -> todo.get 'completed'
-  todosState.map (todo) ->
-    todo.set 'completed', not allCompleted
-
-removeAllCompletedTodos = (todosState) ->
-  todosState.filter (todo) -> not todo.get 'completed'
-
 receiveAllTodos = (todosState, jsonTodos) ->
   List(convertJsonTodos2State jsonTodos)
 
@@ -100,7 +71,6 @@ receiveTodoChanges = (todosState, jsonTodoChanges) ->
 
     if changed.length > 0
       jsonTodoById = mapJsonTodosById changed
-      console.log '###', changed, jsonTodoChanges
       nextTodosState = nextTodosState.map (todoState) ->
         jsonTodo = jsonTodoById[todoState?.get('id')]
         if jsonTodo? then convertJsonTodo2State(jsonTodo) else todoState
@@ -113,12 +83,6 @@ module.exports = {
   createTodo
   isValidTodo
   isValidTodos
-  addTodo
-  changeTodoText
-  removeTodo
-  toggleTodo
-  toggleAllTodos
-  removeAllCompletedTodos
   receiveAllTodos
   receiveTodoChanges
 }

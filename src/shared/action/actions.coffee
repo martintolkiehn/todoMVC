@@ -78,7 +78,6 @@ removeTodo = (pos, todoState) ->
   webserviceCallIsRunning 'remove todo item'
 
 changeTodoText = (pos, todoState, text) ->
-  console.log 'changeTodoText',pos, '-', todoState, '-', text
   jsonTodo = todoState.toJS()
   jsonTodo.text = text
   changeTodo jsonTodo, 'change todo text'
@@ -92,22 +91,17 @@ toggleTodo = (pos, todoState) ->
   changeTodoCompletion pos, todoState, not todoState.get('completed')
 
 toggleAllTodos = (todosState) ->
-  console.log 'on toggleAllTodos:', todosState.toJS()
   setToCompleted = not (todosState.every((todo) -> todo.get('completed')))
-  console.log 'setToCompleted', setToCompleted
   allChanged = []
   todosState.forEach (todoState) ->
-    console.log 'todoState', todoState.toJS()
     if todoState.get('completed') isnt setToCompleted
       jsonTodo = todoState.toJS()
       jsonTodo.completed = setToCompleted
       allChanged.push jsonTodo
-  console.log 'toggleAllTodos:', allChanged
   return {type:''} if allChanged.length <= 0
 
   WebserviceClient.changeTodos(changes:allChanged).then((response)->
     changedJsonTodos = response.entity
-    console.log 'changedJsonTodos', changedJsonTodos
     if changedJsonTodos? && changedJsonTodos?.changed?.length > 0
       registeredStore.dispatch
         type: ActionTypes.WEBSERVICE_RECEIVE_TODO_CHANGES
