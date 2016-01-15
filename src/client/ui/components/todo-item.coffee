@@ -25,8 +25,8 @@ class TodoItem extends Component
     @setState editing: false
 
   handleClick: (pos) ->
-    {pos, toggleTodo} = @props
-    toggleTodo pos
+    {pos, toggleTodo, todo} = @props
+    toggleTodo pos, todo
 
   render: ->
     {removeTodo, toggleTodo, pos, todo} = @props
@@ -48,7 +48,7 @@ class TodoItem extends Component
           <TodoCheckBox
             pos={pos}
             checked={@props.todo.get 'completed'}
-            onClick={(pos) => @handleClick pos}
+            onClick={() => @handleClick pos, todo}
           />
           <label
             className="todoCompletedText"
