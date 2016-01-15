@@ -4,6 +4,7 @@ Classnames = require 'classnames'
 ImmutablePropTypes = require 'react-immutable-proptypes'
 
 TodoItem = require './todo-item'
+TodoCheckBox = require './todo-checkbox'
 
 class TodoList extends Component
 
@@ -24,15 +25,12 @@ class TodoList extends Component
 
     if todos.size > 0
       return (
-        <div>
-          <input
-            className="toggle-all"
-            type="checkbox"
-            checked={completedCount is todos.size}
-            onChange={=> actions.toggleAllTodos todos}
-          />
-          <label><span></span></label>
-        </div>
+        <TodoCheckBox
+          className="checkedBox"
+          name="toggleAll"
+          checked={completedCount is todos.size}
+          onClick={=> actions.toggleAllTodos todos}
+        />
       )
 
   # handleShow: (filter) ->

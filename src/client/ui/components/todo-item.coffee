@@ -31,39 +31,17 @@ class TodoItem extends Component
   render: ->
     {removeTodo, toggleTodo, pos, todo} = @props
 
-    element = null
-
-    if @state.editing
-      element = (
+    if @state.editing then return (
+      <li className="editingInput">
         <TodoInput
           className="todoAdder"
           text={@props.todo.get 'text'}
           editing={@state.editing}
           onSave={(text) => @handleSave text}
         />
-      )
-    else
-      element = (
-        <div className="todoItem">
-          <TodoCheckBox
-            pos={pos}
-            checked={@props.todo.get 'completed'}
-            onClick={() => @handleClick pos, todo}
-          />
-          <label
-            className="todoCompletedText"
-            onDoubleClick={@handleDoubleClick.bind this}
-          >
-            <span>{@props.todo.get 'text'}</span>
-          </label>
-          <button
-            className="todoRemove"
-            onClick={() -> removeTodo pos, todo}
-          />
-        </div>
-      )
-
-    return (
+      </li>
+    )
+    else return (
       <li
         className={
           Classnames(
@@ -72,10 +50,23 @@ class TodoItem extends Component
           ) + ' pos' + pos
         }
       >
-        {element}
+        <TodoCheckBox
+          pos={pos}
+          checked={@props.todo.get 'completed'}
+          onClick={() => @handleClick pos, todo}
+        />
+        <label
+          className="inputText"
+          onDoubleClick={@handleDoubleClick.bind this}
+        >
+          <span>{@props.todo.get 'text'}</span>
+        </label>
+        <button
+          className="todoRemove"
+          onClick={() -> removeTodo pos, todo}
+        />
       </li>
-    )
-
+      )
   @propTypes:
     changeTodoText: PropTypes.func.isRequired
     removeTodo: PropTypes.func.isRequired
