@@ -104,26 +104,35 @@ input[type="text"].newTodo {
     only screen and (max-width: 480px)
 {
 
-  #root {
-    margin: 5vw;
-    width: 90vw;
+  body {
+      margin: 0;
   }
 
+  #root {
+    margin: 2.5vw;
+    width: 95vw;
+  }
+
+  header {
+    width: 95vw;
+}
+
   header h1 {
-    width: 90vw;
-    font-size: 10vw;
-    line-height: 20vw;
+    font-size: 5vw;
+    line-height: 15vw;
+    margin: 1vw 1vw 0 0;
 }
 
   .todoApp {
-    padding-bottom: 5vw;
+    padding-bottom: 2.5vw;
+    margin-bottom: 2.5vw;
   }
 
   input[type="text"], .inputText {
-    width: 70vw
-    font-size: 8vw;
-    padding: 5vw;
-    margin-bottom: 5vw;
+    width: 75vw;
+    font-size: 5vw;
+    padding: 2.5vw;
+    margin-bottom: 2.5vw;
   }
 
   .editingInput {
@@ -133,14 +142,14 @@ input[type="text"].newTodo {
   .uncheckedBox, .checkedBox, button {
     width: 5vw;
     height: 5vw;
-    margin: 5vw;
+    margin: 2.5vw;
     float: left;
     border: 0;
   }
 
   input[type="text"].newTodo {
-    margin-right: 20vw;
-    margin-bottom: 20vw;
+    margin-right: 10vw;
+    margin-bottom: 10vw;
   }
 
 }
