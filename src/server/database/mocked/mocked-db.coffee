@@ -1,8 +1,6 @@
 Promise = require 'bluebird'
 
-SyncMockedDb = require './mock/sync-mocked-db'
-
-delay = 100
+SyncMockedDb = require './sync-mocked-db'
 
 module.exports =
   getAllTodosAsync: ->
