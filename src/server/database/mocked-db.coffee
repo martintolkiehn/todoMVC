@@ -1,79 +1,18 @@
-deepcopy = require 'deepcopy'
+Promise = require 'bluebird'
 
-todos = [
-    {
-      id: 1
-      text: 'Milch holen'
-      completed: false
-    }
-    {
-      id: 2
-      text: 'Müll runter tragen'
-      completed: true
-    }
-    {
-      id: 3
-      text: 'Oma Bescheid sagen'
-      completed: false
-    }
-    {
-      id: 4
-      text: 'Ticket buchen'
-      completed: true
-    }
-]
+SyncMockedDb = require './mock/sync-mocked-db'
 
-getNextId = ->
-  maxId = 0
-  for todo in todos
-    maxId = Math.max maxId, (todo?.id ? 0)
-  maxId + 1
+delay = 100
 
-getTodoIndexById = (id) ->
-  return -1 unless id?
-  for idx in [0 ... todos.length]
-    return idx if id is todos[idx].id
-  return -1
+module.exports =
+  getAllTodosAsync: ->
+    Promise.resolve SyncMockedDb.getAllTodos()
 
+  getTodoByIdAsync: (id) ->
+    Promise.resolve SyncMockedDb.getTodoById id
 
-getAllTodos = ->
-  deepcopy todos
+  removeTodoByIdAsync: (id) ->
+    Promise.resolve SyncMockedDb.removeTodoById id
 
-getTodoById = (id) ->
-  return null unless id?
-  numId = id - 0
-  for todo in todos
-    return [deepcopy todo] if todo.id is numId
-  []
-
-removeTodoById = (id) ->
-  return null unless id?
-  idx = getTodoIndexById id - 0
-  if idx >= 0
-    todo = todos[idx]
-    todos.splice idx, 1
-    return [todo]
-  []
-
-saveTodo = (todo) ->
-  ownTodo =
-    id: todo?.id ? null
-    text: todo?.text ? ''
-    completed: todo?.completed ? false
-
-  idx = getTodoIndexById todo?.id
-  if idx < 0
-    ownTodo.id = getNextId()
-    todos.push ownTodo
-  else
-    todos.splice idx, 1, ownTodo
-
-  [deepcopy ownTodo]
-
-
-module.exports = {
-  getAllTodos
-  getTodoById
-  removeTodoById
-  saveTodo
-}
+  saveTodoAsync: (todo) ->
+    Promise.resolve SyncMockedDb.saveTodo todo
