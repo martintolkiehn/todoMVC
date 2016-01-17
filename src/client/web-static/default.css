@@ -21,13 +21,12 @@ body {
 }
 
 header h1 {
-  font-size: 22px;
   width: 100%;
+  font-size: 32px;
+  line-height: 80px;
   padding: 0;
   margin: 20px 10px 0px 0;
   color: #8A8080;
-  font-size: 32px;
-  line-height: 80px;
   font-weight: normal;
   text-align: center;
   display: block;
@@ -39,16 +38,16 @@ h1 .next {
 }
 
 input[type="text"], .inputText {
-  float: left;
   width: 380px;
   font-size: 24px;
   padding: 16px;
+  margin-bottom: 10px;
+  float: left;
   border: none;
   outline: none;
   background-color: #F8F8F8;
   box-sizing: border-box;
   display: block;
-  margin-bottom: 10px;
   }
 
 input[type="text"]:focus ,.editingInput input {
@@ -85,16 +84,63 @@ section li {
 .checkedBox {background: #DDDDDD;}
 .todoRemove {background-color: #CA1818;}
 .uncheckedBox, .checkedBox, button {
-  float: left;
   width: 20px;
   height: 20px;
   margin: 20px;
+  float: left;
   border: 0;
 }
 
 input[type="text"].newTodo {
-  float: right;
   margin-right: 60px;
   margin-bottom: 60px;
+  float: right;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+@media only screen
+    and (max-device-width: 640px),
+    only screen and (max-device-width: 667px),
+    only screen and (max-width: 480px)
+{
+
+  #root {
+    margin: 5vw;
+    width: 90vw;
+  }
+
+  header h1 {
+    width: 90vw;
+    font-size: 10vw;
+    line-height: 20vw;
+}
+
+  .todoApp {
+    padding-bottom: 5vw;
+  }
+
+  input[type="text"], .inputText {
+    width: 70vw
+    font-size: 8vw;
+    padding: 5vw;
+    margin-bottom: 5vw;
+  }
+
+  .editingInput {
+    margin-left: 20vw;
+  }
+
+  .uncheckedBox, .checkedBox, button {
+    width: 5vw;
+    height: 5vw;
+    margin: 5vw;
+    float: left;
+    border: 0;
+  }
+
+  input[type="text"].newTodo {
+    margin-right: 20vw;
+    margin-bottom: 20vw;
+  }
+
 }
