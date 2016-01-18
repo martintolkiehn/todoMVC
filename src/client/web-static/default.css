@@ -85,8 +85,8 @@ section li {
   display: block;
 }
 
-.uncheckedBox {background: #666666;}
-.checkedBox {background: #DDDDDD;}
+.uncheckedBox {background: #DDDDDD;}
+.checkedBox {background: #666666}
 .todoRemove {background-color: #CA1818;}
 .uncheckedBox, .checkedBox, button {
   width: 20px;
