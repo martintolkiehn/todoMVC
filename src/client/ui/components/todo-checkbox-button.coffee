@@ -2,7 +2,7 @@ React = require 'react'
 { Component, PropTypes } = React
 Classnames = require 'classnames'
 
-class TodoCheckBox extends Component
+class TodoCheckBoxButton extends Component
 
   constructor: (props, context) ->
     super props, context
@@ -28,4 +28,4 @@ class TodoCheckBox extends Component
     pos: PropTypes.number
     name: PropTypes.string
 
-module.exports = TodoCheckBox
+module.exports = TodoCheckBoxButton

@@ -4,7 +4,7 @@ Classnames = require 'classnames'
 ImmutablePropTypes = require 'react-immutable-proptypes'
 
 TodoInput = require './todo-input'
-TodoCheckBox = require './todo-checkbox'
+TodoCheckBoxButton = require './todo-checkbox-button'
 
 class TodoItem extends Component
 
@@ -50,7 +50,7 @@ class TodoItem extends Component
           ) + ' pos' + pos
         }
       >
-        <TodoCheckBox
+        <TodoCheckBoxButton
           pos={pos}
           checked={@props.todo.get 'completed'}
           onClick={() => @handleClick pos, todo}
@@ -61,9 +61,11 @@ class TodoItem extends Component
         >
           <span>{@props.todo.get 'text'}</span>
         </label>
-        <button
-          className="todoRemove"
-          onClick={() -> removeTodo pos, todo}
+        <TodoCheckBoxButton
+          pos={pos}
+          checked=false
+          name="todoRemove"
+          onClick={() => removeTodo pos, todo}
         />
       </li>
       )

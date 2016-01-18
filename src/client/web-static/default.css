@@ -53,6 +53,7 @@ input[type="text"], .inputText {
 input[type="text"]:focus ,.editingInput input {
   background-color: #FFFFFF;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+  color: #333333;
 }
 
 li.completed .inputText {
@@ -144,7 +145,6 @@ input[type="text"].newTodo {
     height: 5vw;
     margin: 2.5vw;
     float: left;
-    border: 0;
   }
 
   input[type="text"].newTodo {
