@@ -142,6 +142,7 @@ Datum 14.01.2016
 
 # Day 8
 Datum 15.01.2016
+* introduction into [short methods](https://gist.github.com/actanoGiang/ed61aa9ef2ca3b85231a)
 
 
 ...(to be continued)
