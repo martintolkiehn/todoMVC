@@ -8,7 +8,7 @@ exports.config = {
       'firefox_binary': process.env.FIREFOX_BIN
     }],
 
-    baseUrl: 'http://localhost:3000',
+    baseUrl: 'http://localhost:3003',
 
     framework: 'mocha',
 

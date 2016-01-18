@@ -1,8 +1,8 @@
 Promise = require 'bluebird'
 deepcopy = require 'deepcopy'
 
-Db = require '../database/mocked/mocked-db'
-#Db = require '../database/couchbase/couchbase-db'
+#Db = require '../database/mocked/mocked-db'
+Db = require '../database/couchbase/couchbase-db'
 
 
 getAllTodosAsync = ->

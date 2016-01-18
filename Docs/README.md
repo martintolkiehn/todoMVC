@@ -36,3 +36,9 @@ couchbase
 digital ocean
 
 ssh -i digital_ocean root@46.101.223.167
+
+
+semver
+istambul
+SOLID
+DRY / KISS

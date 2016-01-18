@@ -7,8 +7,7 @@
     "start": "coffee ./src/server/server.coffee -n",
     "test": "mocha",
     "test-support:start-app-server": "coffee ./test/server-for-ui-tests.coffee -n",
-    "test:client": "protractor protractor.conf.js",
-    "test:cb": "coffee ./src/server/database/db.coffee"
+    "test:integration": "protractor protractor.conf.js"
   },
   "repository": {
     "type": "git",
