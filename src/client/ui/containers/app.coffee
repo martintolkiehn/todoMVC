@@ -7,6 +7,7 @@ ImmutablePropTypes = require 'react-immutable-proptypes'
 Actions = require '../../action/actions'
 TodoAdder = require '../components/todo-adder'
 TodoList = require '../components/todo-list'
+TodoFilter = require '../components/todo-filter'
 
 class App extends Component
   render: ->
@@ -15,6 +16,7 @@ class App extends Component
       <div className="todoApp">
         <TodoAdder addTodo={actions.addTodo} loadAllTodos={actions.loadAllTodos}/>
         <TodoList todos={todos} actions={actions} />
+        <TodoFilter todos={todos} actions={actions} />
       </div>
     )
 

@@ -132,6 +132,11 @@ removeAllCompletedTodos = ->
   )
   webserviceCallIsRunning 'toggle all todos'
 
+showHideCompletedTodos = (todoState) ->
+  alert('TODO showHideCompletedTodos')
+
+showHideUncompletedTodos = (todoState) ->
+  alert('TODO showHideUncompletedTodos')
 
 module.exports = {
   registerStore
@@ -143,5 +148,7 @@ module.exports = {
   changeTodoCompletion
   toggleTodo
   toggleAllTodos
+  showHideCompletedTodos
+  showHideUncompletedTodos
   removeAllCompletedTodos
 }

@@ -13,7 +13,7 @@ body {
 
 .todoApp {
   padding-bottom: 10px;
-  background: #F4F4F4;
+  background: #EEEEEE;
   box-sizing: border-box;
   display: block;
   box-shadow: -0.25em 0 2.5em 0 rgba(0, 0, 0, 0.1);
@@ -39,8 +39,8 @@ h1 .next {
 
 input[type="text"], .inputText {
   width: 380px;
-  font-size: 24px;
-  padding: 16px;
+  font-size: 25px;
+  padding: 15px;
   margin-bottom: 10px;
   float: left;
   border: none;
@@ -54,6 +54,10 @@ input[type="text"]:focus ,.editingInput input {
   background-color: #FFFFFF;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
   color: #333333;
+}
+
+div .toggleAll {
+  margin-top: -50px;
 }
 
 li.completed .inputText {
@@ -93,10 +97,40 @@ section li {
 }
 
 input[type="text"].newTodo {
+  margin-left: 60px;
   margin-right: 60px;
-  margin-bottom: 60px;
-  float: right;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+.filterFooter {
+  float: left;
+  padding: 0 15px 0 15px;
+}
+
+.showHideUncompletedTodos {
+  height: 10px;
+  background: #666666;
+  margin-left: 45px;
+  margin-right: 20px;
+  width: 175px;
+  float: left;
+}
+
+.showHideCompletedTodos {
+  height: 10px;
+  background: #DDDDDD;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 175px;
+  float: left;
+}
+
+.removeAllCompletedTodos {
+  height: 10px;
+  background-color: #CA1818;
+  margin-left: 10px;
+  margin-right: 0;
+  float: left;
 }
 
 @media only screen
