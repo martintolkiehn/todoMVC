@@ -1,6 +1,7 @@
 module.exports = require('../../shared/util/common-util').defineConstants [
-  'SHOW_HIDE_COMPLETED_TODOS'
-  'SHOW_HIDE_UNCOMPLETED_TODOS'
+  'SHOW_ALL_TODOS'
+  'SHOW_COMPLETED_TODOS'
+  'SHOW_OPEN_TODOS'
   'REMOVE_ALL_COMPLETED_TODOS'
 
   'WEBSERVICE_CALL_IS_RUNNING'

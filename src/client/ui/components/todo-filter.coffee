@@ -11,12 +11,16 @@ class TodoFilter extends Component
     return (
       <div className="filterFooter">
         <TodoCheckBoxButton
-          name="showHideUncompletedTodos"
-          onClick={=> actions.showHideUncompletedTodos todos}
+          name="showAllTodos"
+          onClick={=> actions.showAllTodos todos}
         />
         <TodoCheckBoxButton
-          name="showHideCompletedTodos"
-          onClick={=> actions.showHideCompletedTodos todos}
+          name="showCompletedTodos"
+          onClick={=> actions.showCompletedTodos todos}
+        />
+        <TodoCheckBoxButton
+          name="showOpenTodos"
+          onClick={=> actions.showOpenTodos todos}
         />
         <TodoCheckBoxButton
           name="removeAllCompletedTodos"

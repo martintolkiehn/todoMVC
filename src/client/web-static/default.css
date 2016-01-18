@@ -107,21 +107,30 @@ input[type="text"].newTodo {
   padding: 0 15px 0 15px;
 }
 
-.showHideUncompletedTodos {
+.showAllTodos {
   height: 10px;
-  background: #666666;
+  background: #DDDDDD;
   margin-left: 45px;
-  margin-right: 20px;
-  width: 175px;
+  margin-right: 15px;
+  width: 110px;
   float: left;
 }
 
-.showHideCompletedTodos {
+.showCompletedTodos {
   height: 10px;
   background: #DDDDDD;
   margin-left: 10px;
+  margin-right: 15px;
+  width: 110px;
+  float: left;
+}
+
+.showOpenTodos {
+  height: 10px;
+  background: #666666;
+  margin-left: 10px;
   margin-right: 10px;
-  width: 175px;
+  width: 110px;
   float: left;
 }
 

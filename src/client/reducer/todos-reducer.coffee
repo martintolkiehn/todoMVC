@@ -8,10 +8,12 @@ reduce = (state, action) ->
   return state unless Actions.isValid(action)
 
   switch action.type
-    when ActionTypes.SHOW_HIDE_COMPLETED_TODOS
-      return TodoAccess.showHideCompletedTodos state
-    when ActionTypes.SHOW_HIDE_UNCOMPLETED_TODOS
-      return TodoAccess.showHideUncompletedTodos state
+    when ActionTypes.SHOW_ALL_TODOS
+      return TodoAccess.showAllTodos state
+    when ActionTypes.SHOW_COMPLETED_TODOS
+      return TodoAccess.showCompletedTodos state
+    when ActionTypes.SHOW_OPEN_TODOS
+      return TodoAccess.showOpenTodos state
     when ActionTypes.REMOVE_ALL_COMPLETED_TODOS
       return TodoAccess.removeAllCompletedTodos state
     when ActionTypes.WEBSERVICE_RECEIVE_ALL_TODOS
