@@ -46,6 +46,35 @@ getTodoIndexById = (todos, id) ->
     return idx if id is todos[idx].id
   return -1
 
+removeTodoById = (todos, id) ->
+  return [] unless id?
+
+  idx = getTodoIndexById todos, id - 0
+  return [] if idx < 0
+
+  todo = todos[idx]
+  todos.splice idx, 1
+
+  return [todo]
+
+saveTodo = (todos, todo) ->
+  return [] unless todo?
+
+  ownTodo =
+    id: todo?.id ? null
+    text: todo?.text ? ''
+    completed: todo?.completed ? false
+
+  idx = getTodoIndexById todos, todo?.id
+
+  if idx < 0
+    ownTodo.id = getNextId todos
+    todos.push ownTodo
+  else
+    todos.splice idx, 1, ownTodo
+
+  [ownTodo]
+
 
 getDocAsync= (docId) ->
   new Promise (fulfill, reject) ->
@@ -104,56 +133,53 @@ getTodoByIdAsync = (id) ->
   )
 
 removeTodoByIdAsync = (id) ->
-  docId = DbConfig.documentId
   return Promise.resolve(null) unless id?
   getAllTodosAsync(
   ).then( (todos) ->
-    return [] unless id?
-
-    idx = getTodoIndexById todos, id - 0
-    return [] if idx < 0
-
-    todo = todos[idx]
-    todos.splice idx, 1
-
-    replaceDocAsync(docId, todos:todos
+    removed = removeTodoById todos, id
+    replaceDocAsync(DbConfig.documentId, todos:todos
     ).then(->
-      return [todo]
+      removed
     )
   )
 
 saveTodoAsync = (todo) ->
-  console.log 'save todo', todo
-  docId = DbConfig.documentId
   return Promise.resolve([]) unless todo?
   getAllTodosAsync(
   ).then( (todos) ->
-    console.log 'load todos:', todos
-    ownTodo =
-      id: todo?.id ? null
-      text: todo?.text ? ''
-      completed: todo?.completed ? false
-
-    console.log 'own todo', ownTodo
-
-    idx = getTodoIndexById todos, todo?.id
-    console.log 'idx found:', idx
-
-    if idx < 0
-      ownTodo.id = getNextId todos
-      console.log 'new item:', ownTodo
-      todos.push ownTodo
-    else
-      console.log 'replace item on index ', idx
-      todos.splice idx, 1, ownTodo
-
-    replaceDocAsync(docId, todos:todos
+    saved = saveTodo todos, todo
+    replaceDocAsync(DbConfig.documentId, todos:todos
     ).then(->
       console.log 'todos were updated'
-      return [deepcopy ownTodo]
+      saved
     )
   )
 
+saveTodoChangesAsync = (todoChanges) ->
+  result =
+    removed: []
+    changed: []
+  return Promise.resolve(result) unless todoChanges?
+
+  getAllTodosAsync(
+  ).then( (todos) ->
+    if (todoChanges?.removes?.length ? 0) > 0
+      for todoRemove in todoChanges.removes
+        if todoRemove?.id?
+          removed = removeTodoById todos, todoRemove.id
+          result.removed.push removed[0] if removed? and (removed?.length ? 0) > 0
+
+    if (todoChanges?.changes?.length ? 0) > 0
+      for todoChange in todoChanges.changes
+        if todoChange?
+          changed = saveTodo todos, todoChange
+          result.changed.push changed[0] if changed? and (changed?.length ? 0) > 0
+
+    replaceDocAsync(DbConfig.documentId, todos:todos
+    ).then(->
+      result
+    )
+  )
 
 
 module.exports = {
@@ -161,4 +187,5 @@ module.exports = {
   getTodoByIdAsync
   removeTodoByIdAsync
   saveTodoAsync
+  saveTodoChangesAsync
 }
