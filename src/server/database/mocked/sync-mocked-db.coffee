@@ -71,9 +71,30 @@ saveTodo = (todo) ->
   [deepcopy ownTodo]
 
 
+saveTodoChanges = (todoChanges) ->
+  result =
+    removed: []
+    changed: []
+
+  if (todoChanges?.removes?.length ? 0) > 0
+    for todoRemove in todoChanges.removes
+      if todoRemove?.id?
+        removed = removeTodoById todoRemove.id
+        result.removed.push removed[0] if removed? and (removed?.length ? 0) > 0
+
+  if (todoChanges?.changes?.length ? 0) > 0
+    for todoChange in todoChanges.changes
+      if todoChange?
+        changed = saveTodo todoChange
+        result.changed.push changed[0] if changed? and (changed?.length ? 0) > 0
+
+  result
+
+
 module.exports = {
   getAllTodos
   getTodoById
   removeTodoById
   saveTodo
+  saveTodoChanges
 }
