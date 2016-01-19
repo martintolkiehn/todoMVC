@@ -87,3 +87,17 @@ describe 'browser integration', ->
             expect(list[_idx].getText()).to.eventually.equal todoText
             done()
         )
+
+    it "should have an unchecked checkbox with css class names uncheckedBox toggleCompletion at the first position", (done) ->
+      childs = listElement.findElements(By.css('.toggleCompletion'))
+      childs.then((list) ->
+        expect(list[0].getAttribute('class')).to.eventually.equal 'uncheckedBox toggleCompletion'
+        done()
+      )
+
+    it "should have an checked checkbox with css class names checkedBox toggleCompletion at the second position", (done) ->
+      childs = listElement.findElements(By.css('.toggleCompletion'))
+      childs.then((list) ->
+        expect(list[1].getAttribute('class')).to.eventually.equal 'checkedBox toggleCompletion'
+        done()
+      )

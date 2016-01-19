@@ -53,6 +53,7 @@ class TodoItem extends Component
         <TodoCheckBoxButton
           pos={pos}
           checked={@props.todo.get 'completed'}
+          name="toggleCompletion"
           onClick={() => @handleClick pos, todo}
         />
         <label
