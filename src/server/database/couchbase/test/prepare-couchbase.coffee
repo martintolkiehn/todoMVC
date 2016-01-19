@@ -23,16 +23,6 @@ initialDoc =
         text: 'Müll runter tragen'
         completed: true
       }
-      {
-        id: 3
-        text: 'Oma Bescheid sagen'
-        completed: false
-      }
-      {
-        id: 4
-        text: 'Ticket buchen'
-        completed: true
-      }
   ]
 
 new Promise (fulfill, reject) ->
