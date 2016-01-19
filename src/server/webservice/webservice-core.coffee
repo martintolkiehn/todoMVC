@@ -1,24 +1,38 @@
 Promise = require 'bluebird'
 deepcopy = require 'deepcopy'
 
-Db = require '../database/mocked/mocked-db'
-#Db = require '../database/couchbase/couchbase-db'
+Database = require '../database/database'
 
 
 getAllTodosAsync = ->
-  Db.getAllTodosAsync()
+  Database.getActiveDbModuleAsync(
+  ).then( (DbModule) ->
+    DbModule.exports.getAllTodosAsync()
+  )
 
 getTodoByIdAsync = (id) ->
-  Db.getTodoByIdAsync id
+  Database.getActiveDbModuleAsync(
+  ).then( (DbModule) ->
+    DbModule.exports.getTodoByIdAsync id
+  )
 
 removeTodoByIdAsync = (id) ->
-  Db.removeTodoByIdAsync id
+  Database.getActiveDbModuleAsync(
+  ).then( (DbModule) ->
+    DbModule.exports.removeTodoByIdAsync id
+  )
 
 saveTodoAsync = (todo) ->
-  Db.saveTodoAsync todo
+  Database.getActiveDbModuleAsync(
+  ).then( (DbModule) ->
+    DbModule.exports.saveTodoAsync todo
+  )
 
 changeTodosAsync = (todoChanges) ->
-  Db.saveTodoChangesAsync todoChanges
+  Database.getActiveDbModuleAsync(
+  ).then( (DbModule) ->
+    DbModule.exports.saveTodoChangesAsync todoChanges
+  )
 
 
 module.exports = {
