@@ -17,3 +17,6 @@ module.exports =
 
   saveTodoChangesAsync: (todoChanges) ->
     Promise.resolve SyncMockedDb.saveTodoChanges todoChanges
+
+  getInfoAsync: ->
+    Promise.resolve SyncMockedDb.getInfo()

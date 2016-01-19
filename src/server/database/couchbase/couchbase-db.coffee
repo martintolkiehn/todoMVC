@@ -181,6 +181,20 @@ saveTodoChangesAsync = (todoChanges) ->
     )
   )
 
+getInfoAsync = ->
+  result =
+    name: 'couchbase'
+    isAvailable: false
+    error: null
+  getAllTodosAsync(
+  ).then( (todos) ->
+    result.isAvailable = true
+    result
+  ).catch( (err) ->
+    result.isAvailable = false
+    result.error = err
+    result
+  )
 
 module.exports = {
   getAllTodosAsync
@@ -188,4 +202,5 @@ module.exports = {
   removeTodoByIdAsync
   saveTodoAsync
   saveTodoChangesAsync
+  getInfoAsync
 }

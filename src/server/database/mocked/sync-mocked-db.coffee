@@ -90,6 +90,13 @@ saveTodoChanges = (todoChanges) ->
 
   result
 
+getInfo = ->
+  result =
+    name: 'mocked'
+    isAvailable: false
+    error: null
+  result.isAvailable = true
+  result
 
 module.exports = {
   getAllTodos
@@ -97,4 +104,5 @@ module.exports = {
   removeTodoById
   saveTodo
   saveTodoChanges
+  getInfo
 }
