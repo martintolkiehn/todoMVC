@@ -1,17 +1,22 @@
 # Technologien
 die bei der Erstellung der todoMVC-Anwendung verwendet bzw. untersucht wurden
 
+## Programmiersprache
 * [coffeescript](http://coffeescript.org/)
 * [javascript in coffeescript umwandeln](http://js2.coffee/)
 
+## Basis-Module
 * [node.js](https://nodejs.org/en/docs/)
 * [npm.js](https://docs.npmjs.com/getting-started/what-is-npm)
 
+## Test-Framework
 * [mocha.js](https://mochajs.org/)
 * [chai.js](http://chaijs.com/guide/)
 
+## Webserver
 * [express.js](http://expressjs.com/)
 
+## Redux/React
 * [react.js](https://facebook.github.io/react/docs/tutorial.html)
 * [react.js/test-utils](https://facebook.github.io/react/docs/test-utils.html)
 * [react.js](https://facebook.github.io/jest/docs/tutorial-react.html)
@@ -29,13 +34,17 @@ die bei der Erstellung der todoMVC-Anwendung verwendet bzw. untersucht wurden
 * [redux-immutable](https://github.com/gajus/redux-immutable)
 * [r-dom](https://github.com/uber/r-dom)
 
+## Module Loader
 * [require.js](http://stuk.github.io/require1k/)
 * [require.js](http://requirejs.org/docs/start.html)
 
+## Asynchrone Operationen
 * [promises](http://alexperry.io/node/2015/03/25/promises-in-node.html)
 
+## REST-Service
 * [REST](https://thewayofcode.wordpress.com/2013/04/21/how-to-build-and-test-rest-api-with-nodejs-express-mocha/)
 
+## End-To-End-Test
 * [karma](http://karma-runner.github.io/0.13/config/browsers.html)
 * [karma](http://karma-runner.github.io/0.13/intro/configuration.html)
 
@@ -45,10 +54,14 @@ die bei der Erstellung der todoMVC-Anwendung verwendet bzw. untersucht wurden
 * [protractor/mocha](http://byverdu.github.io/e2e-tests-with-protractor-and-mocha/)
 * [protractor](https://github.com/angular/protractor/blob/master/docs/locators.md)
 
+## Continuous Integration
 * [travis](https://docs.travis-ci.com/user/for-beginners)
 * [travis/todoMVC](https://travis-ci.org/martintolkiehn/todoMVC)
 * [travis/heroku](https://docs.travis-ci.com/user/deployment/heroku/)
 * [heroku/todoMVC](https://sleepy-citadel-1699.herokuapp.com/)
 
+## NO-SQL Datenbank
 * [couchbase](http://developer.couchbase.com/guides-and-references)
+
+## Code-Qualität
 * [kiss/dry/yagni/tdd](http://compositecode.com/2008/06/16/kiss-dry-soc-yagni-tdd/)
