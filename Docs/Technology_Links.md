@@ -1,21 +1,23 @@
 # Technologien
 die bei der Erstellung der todoMVC-Anwendung verwendet bzw. untersucht wurden
 
-* [coffee](http://coffeescript.org/)
-* [coffee](http://js2.coffee/)
+* [coffeescript](http://coffeescript.org/)
+* [javascript in coffeescript umwandeln](http://js2.coffee/)
 
-* node.js, npm
+* [node.js](https://nodejs.org/en/docs/)
+* [npm.js](https://docs.npmjs.com/getting-started/what-is-npm)
 
 * [mocha.js](https://mochajs.org/)
+* [chai.js](http://chaijs.com/guide/)
 
 * [express.js](http://expressjs.com/)
 
-* [react.js](https://facebook.github.io/react/docs/test-utils.html)
-* [react.js](https://facebook.github.io/jest/docs/tutorial-react.html)
 * [react.js](https://facebook.github.io/react/docs/tutorial.html)
-* [react.js](https://github.com/tastejs/todomvc/blob/gh-pages/examples/react/index.html)
+* [react.js/test-utils](https://facebook.github.io/react/docs/test-utils.html)
+* [react.js](https://facebook.github.io/jest/docs/tutorial-react.html)
+* [react.js/examples](https://github.com/tastejs/todomvc/blob/gh-pages/examples/react/index.html)
 * [react.js](https://github.com/facebook/react/tree/master/examples)
-* [react.js](https://github.com/jesstelford/react-testing-mocha-jsdom)
+* [react.js/test/mocha/jsdom](https://github.com/jesstelford/react-testing-mocha-jsdom)
 * [react](https://github.com/facebook/react)
 * [react/redux](https://github.com/rackt/redux)
 * [react/redux](http://redux.js.org/)
@@ -37,15 +39,16 @@ die bei der Erstellung der todoMVC-Anwendung verwendet bzw. untersucht wurden
 * [karma](http://karma-runner.github.io/0.13/config/browsers.html)
 * [karma](http://karma-runner.github.io/0.13/intro/configuration.html)
 
-* [protractor](http://www.heise.de/developer/artikel/End-to-End-Tests-mit-Protractor-2461535.html)
-* [protractor](http://litutech.blogspot.de/2014/02/an-example-of-use-of-protractor-with.html)
-* [protractor](http://byverdu.github.io/e2e-tests-with-protractor-and-mocha/)
 * [protractor](https://angular.github.io/protractor/#/tutorial)
+* [protractor](http://www.heise.de/developer/artikel/End-to-End-Tests-mit-Protractor-2461535.html)
+* [protractor/example](http://litutech.blogspot.de/2014/02/an-example-of-use-of-protractor-with.html)
+* [protractor/mocha](http://byverdu.github.io/e2e-tests-with-protractor-and-mocha/)
 * [protractor](https://github.com/angular/protractor/blob/master/docs/locators.md)
 
 * [travis](https://docs.travis-ci.com/user/for-beginners)
-* [travis](https://travis-ci.org/martintolkiehn/todoMVC)
+* [travis/todoMVC](https://travis-ci.org/martintolkiehn/todoMVC)
 * [travis/heroku](https://docs.travis-ci.com/user/deployment/heroku/)
-* [heroku](https://sleepy-citadel-1699.herokuapp.com/)
+* [heroku/todoMVC](https://sleepy-citadel-1699.herokuapp.com/)
 
+* [couchbase](http://developer.couchbase.com/guides-and-references)
 * [kiss/dry/yagni/tdd](http://compositecode.com/2008/06/16/kiss-dry-soc-yagni-tdd/)
