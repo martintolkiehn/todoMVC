@@ -1,13 +1,22 @@
 # Technologien
 die bei der Erstellung der todoMVC-Anwendung verwendet bzw. untersucht wurden
 
-## Programmiersprache
-* [coffeescript](http://coffeescript.org/)
-* [javascript in coffeescript umwandeln](http://js2.coffee/)
+## Grundlagen
 
-## Basis-Module
-* [node.js](https://nodejs.org/en/docs/)
-* [npm.js](https://docs.npmjs.com/getting-started/what-is-npm)
+* _javascript_  
+
+* _coffeescript_  
+  ist ein Modul zum Übersetzen der Coffee-Script-Syntax in Java-Script-Syntax (Präprozessor)  
+  - Link: <http://coffeescript.org/>  
+  - Link (javascript in coffeescript umwandeln): <http://js2.coffee/>
+
+* _node.js_  
+  ist eine serverseitige Plattform zum Betrieb von Netzwerkanwendungen, z.B. Webserver
+  - muss installiert werden
+  - enthält einige Module, die direkt in das Binärpaket kompiliert wurden. Dazu gehören neben dem Modul für asynchronen          Netzwerkzugriff auch Adapter für das Dateisystem, Puffer, Zeitgeber und eine allgemein gehaltene Datenstrom-Klasse.
+  - enthält den Paketmanager npm zur Verwaltung von Modulen. In dessen Depot befinden sich über 185.000 Pakete (September        2015). Er sorgt, unter Berücksichtigung von Abhängigkeiten, für die Installation, Aktualisierung und das Kompilieren von     Binärmodulen.
+  - Link: <https://nodejs.org/en/docs/>
+  - Link (npm): <https://docs.npmjs.com/getting-started/what-is-npm>
 
 ## Test-Framework
 * [mocha.js](https://mochajs.org/)
